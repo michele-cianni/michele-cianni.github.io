@@ -1,0 +1,579 @@
+---
+import profile from '../data/profile.json';
+---
+
+<div id="uc-overlay" role="dialog" aria-modal="true" aria-label="Site under construction">
+  <!-- Background layers -->
+  <div class="uc-bg-grid" aria-hidden="true"></div>
+  <div class="uc-bg-glow-top" aria-hidden="true"></div>
+  <div class="uc-bg-glow-bottom" aria-hidden="true"></div>
+  <div class="uc-scanlines" aria-hidden="true"></div>
+
+  <!-- IDE chrome bar -->
+  <div class="uc-chrome-bar" aria-hidden="true">
+    <div class="uc-chrome-dots">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--yellow"></span>
+      <span class="dot dot--green"></span>
+    </div>
+    <span class="uc-chrome-title">build.log — terminal</span>
+    <span class="uc-chrome-right">// pid: 4096</span>
+  </div>
+
+  <!-- Main content -->
+  <div class="uc-content">
+    <p class="uc-eyebrow">// status: building<span class="uc-cursor" aria-hidden="true">|</span></p>
+
+    <h1 class="uc-name" aria-label="Michele Cianni">
+      <span class="uc-name-line">Michele</span>
+      <span class="uc-name-line uc-name-line--2">Cianni</span>
+    </h1>
+
+    <p class="uc-tagline">{profile.tagline}</p>
+
+    <div class="uc-divider" aria-label="Under Construction">
+      <span class="uc-divider-label">under construction</span>
+    </div>
+
+    <!-- Terminal log card -->
+    <div class="uc-terminal" aria-hidden="true">
+      <div class="uc-log-line" data-delay="0">
+        <span class="log-prompt">$</span>
+        <span class="log-cmd">npm run build</span>
+      </div>
+      <div class="uc-log-line" data-delay="1">
+        <span class="log-tag log-tag--info">[info]</span>
+        <span class="log-text">initialising project: portfolio-v1</span>
+      </div>
+      <div class="uc-log-line" data-delay="2">
+        <span class="log-tag log-tag--ok">[ok]</span>
+        <span class="log-text">dependencies resolved (312 packages)</span>
+      </div>
+      <div class="uc-log-line" data-delay="3">
+        <span class="log-tag log-tag--ok">[ok]</span>
+        <span class="log-text">hero · about · skills · projects · contact</span>
+      </div>
+      <div class="uc-log-line" data-delay="4">
+        <span class="log-tag log-tag--warn">[wait]</span>
+        <span class="log-text">finalising deployment pipeline...</span>
+      </div>
+      <div class="uc-log-line uc-log-line--active" data-delay="5">
+        <span class="log-tag log-tag--build">[build]</span>
+        <span class="log-text">something great is coming</span>
+        <span class="uc-cursor">_</span>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="uc-progress-wrap" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Build progress: 78%">
+      <div class="uc-progress-labels">
+        <span class="uc-progress-label">build progress</span>
+        <span class="uc-progress-pct">78%</span>
+      </div>
+      <div class="uc-progress-track">
+        <div class="uc-progress-fill"></div>
+        <div class="uc-progress-shimmer" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Personal note -->
+    <p class="uc-note">
+      Something great is coming. In the meantime, feel free to reach out.
+    </p>
+
+    <!-- Social links -->
+    <div class="uc-socials">
+      <a href={profile.github} class="uc-social" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+      <a href={profile.linkedin} class="uc-social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href={`mailto:${profile.contact.email}`} class="uc-social" aria-label="Send email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+        </svg>
+        <span>Email</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="uc-bottom-bar" aria-hidden="true">
+    <span class="uc-bottom-text">// awaiting deploy · stay tuned</span>
+  </div>
+</div>
+
+<script>
+  // Set staggered animation delays on terminal log lines
+  document.querySelectorAll<HTMLElement>('.uc-log-line').forEach(el => {
+    const delay = parseFloat(el.dataset.delay ?? '0');
+    el.style.animationDelay = `${1.0 + delay * 0.15}s`;
+  });
+</script>
+
+<style>
+  /* ─── Overlay base ─────────────────────────────────────────────── */
+  #uc-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #0A0A0F;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ─── Background layers ────────────────────────────────────────── */
+  .uc-bg-grid,
+  .uc-bg-glow-top,
+  .uc-bg-glow-bottom,
+  .uc-scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .uc-bg-grid {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in srgb, #6C63FF 18%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 90% 90% at 50% 40%, black 20%, transparent 80%);
+    opacity: 0.25;
+  }
+
+  .uc-bg-glow-top {
+    background: radial-gradient(
+      ellipse 70% 60% at 10% 5%,
+      color-mix(in srgb, #6C63FF 14%, transparent),
+      transparent 70%
+    );
+  }
+
+  .uc-bg-glow-bottom {
+    background: radial-gradient(
+      ellipse 60% 40% at 90% 100%,
+      color-mix(in srgb, #6C63FF 8%, transparent),
+      transparent 70%
+    );
+  }
+
+  .uc-scanlines {
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      color-mix(in srgb, #000 12%, transparent) 3px,
+      color-mix(in srgb, #000 12%, transparent) 6px
+    );
+    opacity: 0.35;
+  }
+
+  /* ─── Chrome bar ───────────────────────────────────────────────── */
+  .uc-chrome-bar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.25rem;
+    background: color-mix(in srgb, #1A1A2E 90%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, #6C63FF 20%, transparent);
+    flex-shrink: 0;
+    animation: uc-fade-up 0.4s ease-out 0.1s both;
+  }
+
+  .uc-chrome-dots {
+    display: flex;
+    gap: 0.375rem;
+  }
+
+  .dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+  }
+
+  .dot--red    { background: #FF5F57; }
+  .dot--yellow { background: #FEBC2E; }
+  .dot--green  { background: #28C840; }
+
+  .uc-chrome-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    flex: 1;
+    text-align: center;
+  }
+
+  .uc-chrome-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: color-mix(in srgb, #9CA3AF 40%, transparent);
+  }
+
+  /* ─── Main content ─────────────────────────────────────────────── */
+  .uc-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(2.5rem, 8vw, 5rem) clamp(1.5rem, 8vw, 6rem);
+    max-width: 54rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* ─── Eyebrow ──────────────────────────────────────────────────── */
+  .uc-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.7rem, 1.5vw, 0.875rem);
+    color: color-mix(in srgb, #6C63FF 70%, #9CA3AF);
+    letter-spacing: 0.05em;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.15em;
+    animation: uc-fade-up 0.5s ease-out 0.2s both;
+  }
+
+  /* ─── Name ─────────────────────────────────────────────────────── */
+  .uc-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(4.5rem, 14vw, 10rem);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #E4E4E7;
+    margin: 0 0 0.6rem;
+    display: block;
+  }
+
+  .uc-name-line {
+    display: block;
+    overflow: hidden;
+    clip-path: inset(0 100% 0 0);
+    animation: uc-reveal-name 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  }
+
+  .uc-name-line--2 {
+    animation-delay: 0.5s;
+  }
+
+  /* ─── Tagline ──────────────────────────────────────────────────── */
+  .uc-tagline {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    color: #9CA3AF;
+    margin: 0 0 1.5rem;
+    animation: uc-fade-up 0.5s ease-out 0.7s both;
+  }
+
+  /* ─── Divider with "UNDER CONSTRUCTION" label ─────────────────── */
+  .uc-divider {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 0 1.5rem;
+    animation: uc-fade-up 0.5s ease-out 0.85s both;
+  }
+
+  .uc-divider::before,
+  .uc-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+  }
+
+  .uc-divider::before {
+    background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, #6C63FF 40%, transparent)
+    );
+  }
+
+  .uc-divider::after {
+    background: linear-gradient(
+      to left,
+      transparent,
+      color-mix(in srgb, #6C63FF 40%, transparent)
+    );
+  }
+
+  .uc-divider-label {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+    letter-spacing: 0.15em;
+    color: #6C63FF;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    text-shadow:
+      0 0 20px color-mix(in srgb, #6C63FF 60%, transparent),
+      0 0 60px color-mix(in srgb, #6C63FF 30%, transparent);
+  }
+
+  /* ─── Terminal log card ────────────────────────────────────────── */
+  .uc-terminal {
+    width: 100%;
+    max-width: 36rem;
+    background: color-mix(in srgb, #1A1A2E 70%, transparent);
+    border: 1px solid color-mix(in srgb, #6C63FF 20%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .uc-log-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    opacity: 0;
+    animation: uc-fade-in 0.4s ease-out both;
+    color: #9CA3AF;
+  }
+
+  .uc-log-line--active {
+    color: #c3e88d;
+  }
+
+  .log-prompt {
+    color: color-mix(in srgb, #6C63FF 80%, white);
+    font-weight: 700;
+  }
+
+  .log-cmd {
+    color: #E4E4E7;
+  }
+
+  .log-tag {
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .log-tag--info  { color: #89DDFF; }
+  .log-tag--ok    { color: #c3e88d; }
+  .log-tag--warn  { color: #FFCB6B; }
+  .log-tag--build { color: #6C63FF; }
+
+  .log-text {
+    opacity: 0.8;
+  }
+
+  /* ─── Progress bar ─────────────────────────────────────────────── */
+  .uc-progress-wrap {
+    width: 100%;
+    max-width: 36rem;
+    margin-bottom: 1.5rem;
+    animation: uc-fade-up 0.5s ease-out 1.8s both;
+  }
+
+  .uc-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .uc-progress-label,
+  .uc-progress-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: color-mix(in srgb, #9CA3AF 60%, transparent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .uc-progress-pct {
+    color: color-mix(in srgb, #6C63FF 70%, #9CA3AF);
+  }
+
+  .uc-progress-track {
+    width: 100%;
+    height: 3px;
+    background: color-mix(in srgb, #6C63FF 15%, transparent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .uc-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #6C63FF, #a78bfa);
+    animation: uc-grow 2s cubic-bezier(0.22, 1, 0.36, 1) 1.8s both;
+  }
+
+  .uc-progress-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, white 30%, transparent) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: uc-shimmer 2.5s ease-in-out infinite;
+  }
+
+  /* ─── Note ─────────────────────────────────────────────────────── */
+  .uc-note {
+    font-size: clamp(0.8rem, 1.5vw, 0.9375rem);
+    color: color-mix(in srgb, #9CA3AF 70%, transparent);
+    margin: 0 0 0.25rem;
+    animation: uc-fade-up 0.5s ease-out 2.0s both;
+  }
+
+  /* ─── Social links ─────────────────────────────────────────────── */
+  .uc-socials {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+    animation: uc-fade-up 0.5s ease-out 2.1s both;
+  }
+
+  .uc-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, #6C63FF 35%, transparent);
+    color: #9CA3AF;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+
+  .uc-social:hover {
+    border-color: #6C63FF;
+    color: #E4E4E7;
+    background: color-mix(in srgb, #6C63FF 8%, transparent);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Cursor ───────────────────────────────────────────────────── */
+  .uc-cursor {
+    display: inline-block;
+    animation: uc-cursor-blink 1s step-end infinite;
+    color: #6C63FF;
+    font-weight: 700;
+  }
+
+  /* ─── Bottom strip ─────────────────────────────────────────────── */
+  .uc-bottom-bar {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid color-mix(in srgb, #9CA3AF 8%, transparent);
+    padding: 0.75rem 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .uc-bottom-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    color: #9CA3AF;
+    opacity: 0.2;
+    letter-spacing: 0.07em;
+  }
+
+  /* ─── Keyframes ────────────────────────────────────────────────── */
+  @keyframes uc-reveal-name {
+    from { clip-path: inset(0 100% 0 0); opacity: 0.4; }
+    to   { clip-path: inset(0 0% 0 0);   opacity: 1;   }
+  }
+
+  @keyframes uc-fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
+  @keyframes uc-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes uc-grow {
+    from { width: 0%; }
+    to   { width: 78%; }
+  }
+
+  @keyframes uc-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  @keyframes uc-cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* ─── Mobile ───────────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .uc-chrome-right {
+      display: none;
+    }
+
+    .uc-socials {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .uc-social {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ─── Reduced motion ───────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .uc-chrome-bar,
+    .uc-eyebrow,
+    .uc-name-line,
+    .uc-tagline,
+    .uc-divider,
+    .uc-terminal,
+    .uc-log-line,
+    .uc-progress-wrap,
+    .uc-progress-fill,
+    .uc-note,
+    .uc-socials {
+      animation: none !important;
+      opacity: 1;
+      clip-path: none;
+      transform: none;
+    }
+
+    .uc-progress-fill {
+      width: 78%;
+    }
+
+    .uc-progress-shimmer,
+    .uc-cursor {
+      animation: none !important;
+    }
+  }
+</style>
