@@ -1,0 +1,686 @@
+---
+import profile from '../data/profile.json';
+const { contact, github, linkedin, telegram, whatsapp, instagram, name } = profile;
+---
+
+<section id="contact" class="contact" aria-label="Contact">
+    <!-- Background layers -->
+    <div class="contact-bg-grid" aria-hidden="true"></div>
+    <div class="contact-bg-glow" aria-hidden="true"></div>
+
+    <div class="contact-container">
+
+        <p class="contact-eyebrow contact-reveal" aria-hidden="true">// 04 — contact</p>
+
+        <div class="contact-grid">
+
+            <!-- Left: heading + contact info + social links -->
+            <div class="contact-left">
+                <h2 class="contact-heading contact-reveal contact-reveal--delay-1">
+                    <span class="heading-main">Let's Talk</span>
+                    <span class="heading-accent" aria-hidden="true">/</span>
+                </h2>
+
+                <p class="contact-subtext contact-reveal contact-reveal--delay-2">
+                    Open to internships, junior roles, and interesting collaborations.
+                    Drop me a line and I'll get back to you.
+                </p>
+
+                <!-- Contact info cards -->
+                <div class="contact-info contact-reveal contact-reveal--delay-3">
+                    <a href={`mailto:${contact.email}`} class="contact-card" aria-label={`Send email to ${contact.email}`}>
+                        <span class="contact-card-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </span>
+                        <div class="contact-card-content">
+                            <span class="contact-card-label">Email</span>
+                            <span class="contact-card-value">{contact.email}</span>
+                        </div>
+                        <span class="contact-card-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <a href={`tel:${contact.phone}`} class="contact-card" aria-label={`Call ${contact.phone}`}>
+                        <span class="contact-card-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </span>
+                        <div class="contact-card-content">
+                            <span class="contact-card-label">Phone</span>
+                            <span class="contact-card-value">{contact.phone}</span>
+                        </div>
+                        <span class="contact-card-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <!-- Social links -->
+                <div class="contact-socials contact-reveal contact-reveal--delay-4">
+                    <a href={github} class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                            </svg>
+                        </span>
+                        <span class="social-label">GitHub</span>
+                        <span class="social-username" aria-hidden="true">/{github.split('/').pop()}</span>
+                    </a>
+
+                    <a href={linkedin} class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </span>
+                        <span class="social-label">LinkedIn</span>
+                        <span class="social-username" aria-hidden="true">/{linkedin.split('/').pop()}</span>
+                    </a>
+
+                    <a href={telegram} class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram profile">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.68 7.92c-.12.56-.44.7-.9.44l-2.5-1.84-1.2 1.16c-.13.13-.25.25-.52.25l.18-2.58 4.7-4.24c.2-.18-.04-.28-.32-.1L7.9 14.16 5.44 13.4c-.55-.17-.56-.55.12-.82l8.87-3.42c.46-.17.86.1.21.64z"/>
+                            </svg>
+                        </span>
+                        <span class="social-label">Telegram</span>
+                        <span class="social-username" aria-hidden="true">@MicheleCianni</span>
+                    </a>
+
+                    <a href={whatsapp} class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </span>
+                        <span class="social-label">WhatsApp</span>
+                        <span class="social-username" aria-hidden="true">{contact.phone}</span>
+                    </a>
+
+                    <a href={instagram} class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                        <span class="social-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </span>
+                        <span class="social-label">Instagram</span>
+                        <span class="social-username" aria-hidden="true">@cianni_michele</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: contact form -->
+            <div class="contact-right contact-reveal contact-reveal--delay-2">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <span class="term-dot term-dot--red" aria-hidden="true"></span>
+                        <span class="term-dot term-dot--yellow" aria-hidden="true"></span>
+                        <span class="term-dot term-dot--green" aria-hidden="true"></span>
+                        <span class="form-card-title">// new_message.md</span>
+                    </div>
+
+                    <form
+                        class="contact-form"
+                        action="https://formspree.io/f/maqlljqa"
+                        method="POST"
+                        novalidate
+                    >
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label class="form-label" for="contact-name">name<span class="form-label-required" aria-hidden="true">*</span></label>
+                                <input
+                                    id="contact-name"
+                                    class="form-input"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your name"
+                                    required
+                                    autocomplete="name"
+                                />
+                            </div>
+                            <div class="form-field">
+                                <label class="form-label" for="contact-email">email<span class="form-label-required" aria-hidden="true">*</span></label>
+                                <input
+                                    id="contact-email"
+                                    class="form-input"
+                                    type="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                    autocomplete="email"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="contact-subject">subject</label>
+                            <input
+                                id="contact-subject"
+                                class="form-input"
+                                type="text"
+                                name="subject"
+                                placeholder="What's on your mind?"
+                                autocomplete="off"
+                            />
+                        </div>
+
+                        <div class="form-field">
+                            <label class="form-label" for="contact-message">message<span class="form-label-required" aria-hidden="true">*</span></label>
+                            <textarea
+                                id="contact-message"
+                                class="form-input form-textarea"
+                                name="message"
+                                placeholder="Tell me about your project, opportunity, or just say hi..."
+                                required
+                                rows="5"
+                            ></textarea>
+                        </div>
+
+                        <button class="form-submit" type="submit">
+                            <span>Send Message</span>
+                            <span class="submit-arrow" aria-hidden="true">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ─── Layout ──────────────────────────────────────────────── */
+
+    .contact {
+        position: relative;
+        padding-block: clamp(5rem, 12vw, 9rem);
+        overflow: hidden;
+    }
+
+    .contact-container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding-inline: clamp(1.5rem, 8vw, 6rem);
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+
+    /* ─── Background Layers ───────────────────────────────────── */
+
+    .contact-bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+            circle,
+            color-mix(in srgb, #6C63FF 18%, transparent) 1px,
+            transparent 1px
+        );
+        background-size: 32px 32px;
+        mask-image: radial-gradient(ellipse 70% 80% at 15% 80%, black 20%, transparent 75%);
+        opacity: 0.2;
+        pointer-events: none;
+    }
+
+    .contact-bg-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 55% 45% at 15% 85%,
+            color-mix(in srgb, #6C63FF 10%, transparent),
+            transparent 70%
+        );
+        pointer-events: none;
+    }
+
+    /* ─── Eyebrow ─────────────────────────────────────────────── */
+
+    .contact-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        color: var(--color-accent);
+        margin-bottom: 2.5rem;
+    }
+
+    /* ─── Two-column grid ─────────────────────────────────────── */
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    @media (min-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 45fr 55fr;
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: start;
+        }
+    }
+
+    /* ─── Left column ─────────────────────────────────────────── */
+
+    .contact-left {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    .contact-heading {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 0.2em;
+    }
+
+    .heading-main {
+        font-family: var(--font-sans);
+    }
+
+    .heading-accent {
+        font-family: var(--font-mono);
+        font-size: 0.65em;
+        color: var(--color-accent);
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    .contact-subtext {
+        font-family: var(--font-sans);
+        font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+
+    /* ─── Contact info cards ──────────────────────────────────── */
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        text-decoration: none;
+        position: relative;
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .contact-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+            to bottom,
+            var(--color-accent),
+            color-mix(in srgb, var(--color-accent) 20%, transparent)
+        );
+    }
+
+    .contact-card:hover {
+        transform: translateY(-3px);
+        border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+        box-shadow:
+            0 8px 24px color-mix(in srgb, #000 40%, transparent),
+            0 0 0 1px color-mix(in srgb, var(--color-accent) 15%, transparent);
+    }
+
+    .contact-card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        color: var(--color-accent);
+        flex-shrink: 0;
+    }
+
+    .contact-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .contact-card-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        color: var(--color-accent);
+        text-transform: uppercase;
+    }
+
+    .contact-card-value {
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        color: var(--color-text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .contact-card-arrow {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--color-text-secondary);
+        flex-shrink: 0;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-card:hover .contact-card-arrow {
+        transform: translateX(4px);
+        color: var(--color-accent);
+    }
+
+    /* ─── Social links ────────────────────────────────────────── */
+
+    .contact-socials {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    /* Lone last item (odd total): keep same column width, left-aligned */
+    .contact-socials .social-link:last-child:nth-child(odd) {
+        grid-column: 1;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        background: color-mix(in srgb, var(--color-surface) 50%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-accent) 18%, transparent);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        text-decoration: none;
+        min-width: 0;
+        transition:
+            transform 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .social-link:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+        box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 12%, transparent);
+    }
+
+    .social-icon {
+        color: var(--color-accent);
+        display: flex;
+        align-items: center;
+    }
+
+    .social-label {
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-text-primary);
+    }
+
+    .social-username {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--color-text-secondary);
+        letter-spacing: 0.03em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    @media (max-width: 640px) {
+        .social-username {
+            display: none;
+        }
+    }
+
+    /* ─── Right column — form card ────────────────────────────── */
+
+    .contact-right {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+        .contact-right {
+            justify-content: flex-start;
+        }
+    }
+
+    .form-card {
+        width: 100%;
+        background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--color-accent) 8%, transparent),
+            0 24px 48px color-mix(in srgb, #000 50%, transparent),
+            inset 0 1px 0 color-mix(in srgb, white 4%, transparent);
+    }
+
+    .form-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.65rem 0.875rem;
+        background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+        border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
+    }
+
+    .term-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .term-dot--red    { background: #ff5f57; }
+    .term-dot--yellow { background: #febc2e; }
+    .term-dot--green  { background: #28c840; }
+
+    .form-card-title {
+        margin-left: auto;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--color-text-secondary);
+        letter-spacing: 0.05em;
+        opacity: 0.6;
+    }
+
+    /* ─── Form ────────────────────────────────────────────────── */
+
+    .contact-form {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 480px) {
+        .form-row {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .form-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        color: var(--color-text-secondary);
+        text-transform: lowercase;
+    }
+
+    .form-label-required {
+        color: var(--color-accent);
+        margin-left: 0.15em;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.65rem 0.875rem;
+        background: color-mix(in srgb, var(--color-background) 70%, transparent);
+        border: 1px solid color-mix(in srgb, var(--color-accent) 15%, transparent);
+        color: var(--color-text-primary);
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        outline: none;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+    }
+
+    .form-input::placeholder {
+        color: color-mix(in srgb, var(--color-text-secondary) 50%, transparent);
+    }
+
+    .form-input:focus {
+        border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 10%, transparent);
+    }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 7rem;
+    }
+
+    .form-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.75rem;
+        background: var(--color-accent);
+        color: #fff;
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        border: none;
+        cursor: pointer;
+        align-self: flex-start;
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .form-submit:hover {
+        background: color-mix(in srgb, var(--color-accent) 85%, white);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--color-accent) 35%, transparent);
+    }
+
+    .form-submit:active {
+        transform: translateY(0);
+    }
+
+    .submit-arrow {
+        font-family: var(--font-mono);
+        transition: transform 0.2s ease;
+    }
+
+    .form-submit:hover .submit-arrow {
+        transform: translateX(4px);
+    }
+
+    /* ─── Scroll-reveal ───────────────────────────────────────── */
+
+    .contact-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 0.6s ease-out,
+            transform 0.6s ease-out;
+    }
+
+    .contact-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .contact-reveal--delay-1 { transition-delay: 0.1s; }
+    .contact-reveal--delay-2 { transition-delay: 0.2s; }
+    .contact-reveal--delay-3 { transition-delay: 0.3s; }
+    .contact-reveal--delay-4 { transition-delay: 0.42s; }
+
+    /* ─── Reduced Motion ──────────────────────────────────────── */
+
+    @media (prefers-reduced-motion: reduce) {
+        .contact-reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .contact-card,
+        .social-link,
+        .form-submit,
+        .form-input {
+            transition: none;
+        }
+    }
+</style>
+
+<script>
+    const reveals = document.querySelectorAll('.contact-reveal');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+</script>
