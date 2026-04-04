@@ -1,0 +1,298 @@
+---
+import profile from '../data/profile.json';
+
+const { skills } = profile;
+
+const categoryColors: string[] = [
+    '#6C63FF', // Backend — accent purple
+    '#38bdf8', // Frontend — sky
+    '#f472b6', // Database — pink
+    '#fb923c', // CI/CD & DevOps — orange
+    '#4ade80', // AI / ML — green
+    '#a78bfa', // Tools — violet
+];
+
+function padIndex(i: number): string {
+    return String(i + 1).padStart(2, '0');
+}
+---
+
+<section id="skills" class="skills" aria-label="Technical skills">
+    <!-- Background layers -->
+    <div class="skills-bg-grid" aria-hidden="true"></div>
+    <div class="skills-bg-glow" aria-hidden="true"></div>
+
+    <div class="skills-container">
+
+        <!-- Section label -->
+        <p class="skills-eyebrow skills-reveal" aria-hidden="true">// 02 — skills</p>
+
+        <!-- Heading -->
+        <h2 class="skills-heading skills-reveal skills-reveal--delay-1">
+            <span class="heading-main">Skills</span>
+            <span class="heading-accent" aria-hidden="true">/</span>
+        </h2>
+
+        <!-- Category grid -->
+        <div class="skills-grid">
+            {skills.map((cat, i) => (
+                <div
+                    class="skills-card skills-reveal"
+                    style={`--cat-color: ${categoryColors[i] ?? '#6C63FF'}; transition-delay: ${(0.15 + i * 0.1).toFixed(2)}s`}
+                >
+                    <div class="card-header">
+                        <span class="card-index" aria-hidden="true">{padIndex(i)}</span>
+                        <span class="card-category">{cat.category}</span>
+                    </div>
+                    <div class="card-badges">
+                        {cat.items.map((item) => (
+                            <span class="badge">{item}</span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* ─── Layout ──────────────────────────────────────────────── */
+
+    .skills {
+        position: relative;
+        padding-block: clamp(5rem, 12vw, 9rem);
+        overflow: hidden;
+    }
+
+    .skills-container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding-inline: clamp(1.5rem, 8vw, 6rem);
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+
+    /* ─── Background Layers ───────────────────────────────────── */
+
+    .skills-bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+            circle,
+            color-mix(in srgb, #6C63FF 18%, transparent) 1px,
+            transparent 1px
+        );
+        background-size: 32px 32px;
+        mask-image: radial-gradient(ellipse 70% 80% at 15% 80%, black 20%, transparent 75%);
+        opacity: 0.2;
+        pointer-events: none;
+    }
+
+    .skills-bg-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 55% 45% at 15% 85%,
+            color-mix(in srgb, #6C63FF 10%, transparent),
+            transparent 70%
+        );
+        pointer-events: none;
+    }
+
+    /* ─── Eyebrow ─────────────────────────────────────────────── */
+
+    .skills-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        color: var(--color-accent);
+        margin-bottom: 2.5rem;
+    }
+
+    /* ─── Heading ─────────────────────────────────────────────── */
+
+    .skills-heading {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin: 0 0 3.5rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.2em;
+    }
+
+    .heading-main {
+        font-family: var(--font-sans);
+    }
+
+    .heading-accent {
+        font-family: var(--font-mono);
+        font-size: 0.65em;
+        color: var(--color-accent);
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    /* ─── Category Grid ───────────────────────────────────────── */
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .skills-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* ─── Category Card ───────────────────────────────────────── */
+
+    .skills-card {
+        position: relative;
+        background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+        border: 1px solid color-mix(in srgb, var(--cat-color, var(--color-accent)) 20%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skills-card:hover {
+        border-color: color-mix(in srgb, var(--cat-color, var(--color-accent)) 45%, transparent);
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--cat-color, var(--color-accent)) 12%, transparent),
+            0 8px 32px color-mix(in srgb, var(--cat-color, var(--color-accent)) 8%, transparent);
+    }
+
+    /* left accent bar */
+    .skills-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+            to bottom,
+            var(--cat-color, var(--color-accent)),
+            color-mix(in srgb, var(--cat-color, var(--color-accent)) 20%, transparent)
+        );
+    }
+
+    /* ─── Card Header ─────────────────────────────────────────── */
+
+    .card-header {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .card-index {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        color: var(--cat-color, var(--color-accent));
+        opacity: 0.7;
+        flex-shrink: 0;
+    }
+
+    .card-category {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        color: var(--cat-color, var(--color-accent));
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    /* ─── Badge Chips ─────────────────────────────────────────── */
+
+    .card-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .badge {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+        color: var(--color-text-secondary);
+        background: color-mix(in srgb, var(--cat-color, var(--color-accent)) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--cat-color, var(--color-accent)) 18%, transparent);
+        padding: 0.25rem 0.6rem;
+        transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: default;
+    }
+
+    .badge:hover {
+        color: var(--cat-color, var(--color-accent));
+        background: color-mix(in srgb, var(--cat-color, var(--color-accent)) 14%, transparent);
+        border-color: color-mix(in srgb, var(--cat-color, var(--color-accent)) 40%, transparent);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--cat-color, var(--color-accent)) 15%, transparent);
+    }
+
+    /* ─── Scroll-reveal ───────────────────────────────────────── */
+
+    .skills-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity 0.6s ease-out,
+            transform 0.6s ease-out;
+    }
+
+    .skills-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .skills-reveal--delay-1 { transition-delay: 0.1s; }
+
+    /* ─── Reduced Motion ──────────────────────────────────────── */
+
+    @media (prefers-reduced-motion: reduce) {
+        .skills-reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .badge:hover {
+            transform: none;
+        }
+    }
+</style>
+
+<script>
+    const reveals = document.querySelectorAll('.skills-reveal');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+</script>
