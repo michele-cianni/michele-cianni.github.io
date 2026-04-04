@@ -1,0 +1,693 @@
+---
+interface Project {
+    id: string;
+    title: string;
+    description: string;
+    longDescription?: string;
+    techStack: string[];
+    role?: string;
+    githubUrl: string | null;
+    liveUrl: string | null;
+    featured: boolean;
+    order: number;
+}
+
+interface Props {
+    project: Project;
+    index: number;
+}
+
+const { project, index } = Astro.props;
+
+const projectColors = ['#6C63FF', '#38bdf8', '#f472b6', '#4ade80'];
+const projColor = projectColors[index % projectColors.length];
+
+function padIndex(i: number): string {
+    return String(i + 1).padStart(2, '0');
+}
+
+function extractDomain(url: string | null): string {
+    if (!url) return 'localhost';
+    try {
+        return new URL(url).hostname.replace(/^www\./, '');
+    } catch {
+        return url;
+    }
+}
+
+const displayIndex = padIndex(index);
+const domain = extractDomain(project.liveUrl);
+---
+
+<article
+    class="project-card proj-reveal"
+    style={`--proj-color: ${projColor}; transition-delay: ${(0.15 + index * 0.18).toFixed(2)}s`}
+    aria-label={project.title}
+>
+    <!-- Left: metadata panel -->
+    <div class="card-meta">
+        <!-- Ghost index number (decorative) -->
+        <span class="card-ghost-index" aria-hidden="true">{displayIndex}</span>
+
+        <!-- Eyebrow -->
+        <p class="card-eyebrow" aria-hidden="true">
+            <span class="eyebrow-index">{displayIndex}</span>
+            <span class="eyebrow-sep">—</span>
+            <span class="eyebrow-label">Featured Project</span>
+        </p>
+
+        <!-- Title -->
+        <h3 class="card-title">{project.title}</h3>
+
+        <!-- Description -->
+        {project.longDescription ? (
+            <details class="card-details">
+                <summary class="card-desc card-desc--summary">
+                    {project.description}
+                    <span class="details-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="details-chevron">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </span>
+                </summary>
+                <p class="card-long-desc">{project.longDescription}</p>
+            </details>
+        ) : (
+            <p class="card-desc">{project.description}</p>
+        )}
+
+        <!-- Role badge -->
+        {project.role && (
+            <span class="card-role">{project.role}</span>
+        )}
+
+        <!-- Tech stack -->
+        {project.techStack.length > 0 && (
+            <ul class="card-stack" aria-label="Technologies used">
+                {project.techStack.map((tech) => (
+                    <li class="stack-badge">{tech}</li>
+                ))}
+            </ul>
+        )}
+
+        <!-- Links -->
+        <div class="card-links">
+            {project.githubUrl && (
+                <a
+                    href={project.githubUrl}
+                    class="card-link card-link--ghost"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`GitHub repository for ${project.title}`}
+                >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            )}
+            {project.liveUrl && (
+                <a
+                    href={project.liveUrl}
+                    class="card-link card-link--primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Live demo of ${project.title}`}
+                >
+                    Live Demo
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
+                </a>
+            )}
+        </div>
+    </div>
+
+    <!-- Right: browser mockup panel -->
+    <div class="card-visual" aria-hidden="true">
+        <div class="browser-frame">
+            <!-- Browser chrome -->
+            <div class="browser-chrome">
+                <div class="chrome-dots">
+                    <span class="chrome-dot chrome-dot--red"></span>
+                    <span class="chrome-dot chrome-dot--yellow"></span>
+                    <span class="chrome-dot chrome-dot--green"></span>
+                </div>
+                <div class="chrome-url">
+                    <span class="url-lock">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </span>
+                    <span class="url-text">{project.liveUrl ? domain : 'localhost'}</span>
+                </div>
+            </div>
+
+            <!-- Viewport -->
+            <div class="browser-viewport">
+                <div class="viewport-grid"></div>
+                <div class="viewport-glow"></div>
+                <div class="viewport-content">
+                    <p class="viewport-project-name">{project.title}</p>
+                    <p class="viewport-domain">{domain}</p>
+                    {project.liveUrl && (
+                        <span class="viewport-live">
+                            <span class="live-dot"></span>
+                            live
+                        </span>
+                    )}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+    /* ─── Card Shell ──────────────────────────────────────────── */
+
+    .project-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "visual"
+            "meta";
+        background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+        border: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 22%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--proj-color, var(--color-accent)) 6%, transparent),
+            0 20px 60px color-mix(in srgb, #000 40%, transparent);
+        transition:
+            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+        .project-card {
+            grid-template-columns: 42% 58%;
+            grid-template-rows: 1fr;
+            grid-template-areas: "meta visual";
+        }
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        border-color: color-mix(in srgb, var(--proj-color, var(--color-accent)) 50%, transparent);
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--proj-color, var(--color-accent)) 15%, transparent),
+            0 30px 80px color-mix(in srgb, #000 50%, transparent),
+            0 0 40px color-mix(in srgb, var(--proj-color, var(--color-accent)) 6%, transparent);
+    }
+
+    /* left accent bar */
+    .project-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+            to bottom,
+            var(--proj-color, var(--color-accent)),
+            color-mix(in srgb, var(--proj-color, var(--color-accent)) 20%, transparent)
+        );
+        z-index: 2;
+    }
+
+    /* ─── Metadata Panel ──────────────────────────────────────── */
+
+    .card-meta {
+        grid-area: meta;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.75rem, 4vw, 2.75rem) clamp(1.75rem, 4vw, 2.75rem) clamp(2rem, 4.5vw, 3rem);
+        z-index: 1;
+    }
+
+    /* Ghost index number — decorative background text */
+    .card-ghost-index {
+        position: absolute;
+        top: -0.1em;
+        right: -0.05em;
+        font-family: 'Bebas Neue', var(--font-sans);
+        font-size: clamp(5rem, 14vw, 10rem);
+        line-height: 1;
+        color: var(--proj-color, var(--color-accent));
+        opacity: 0.04;
+        pointer-events: none;
+        user-select: none;
+        letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 768px) {
+        .card-ghost-index {
+            right: auto;
+            left: -0.05em;
+            font-size: clamp(6rem, 10vw, 11rem);
+        }
+    }
+
+    /* ─── Eyebrow ─────────────────────────────────────────────── */
+
+    .card-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        margin: 0;
+    }
+
+    .eyebrow-index {
+        color: var(--proj-color, var(--color-accent));
+    }
+
+    .eyebrow-sep {
+        color: color-mix(in srgb, var(--color-text-secondary) 40%, transparent);
+    }
+
+    .eyebrow-label {
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+    }
+
+    /* ─── Title ───────────────────────────────────────────────── */
+
+    .card-title {
+        font-family: var(--font-sans);
+        font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        color: var(--color-text-primary);
+        line-height: 1.1;
+        margin: 0;
+    }
+
+    /* ─── Description ─────────────────────────────────────────── */
+
+    .card-desc {
+        font-family: var(--font-sans);
+        font-size: clamp(0.875rem, 1.6vw, 0.975rem);
+        line-height: 1.75;
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+
+    /* ─── Details / Read More ─────────────────────────────────── */
+
+    .card-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .card-desc--summary {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+        cursor: pointer;
+        list-style: none;
+        outline: none;
+    }
+
+    /* Remove default disclosure triangle */
+    .card-desc--summary::-webkit-details-marker { display: none; }
+    .card-desc--summary::marker { display: none; }
+
+    .details-toggle {
+        flex-shrink: 0;
+        margin-top: 0.3em;
+        color: var(--proj-color, var(--color-accent));
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    .card-desc--summary:hover .details-toggle {
+        opacity: 1;
+    }
+
+    .details-chevron {
+        display: block;
+        transition: transform 0.25s ease;
+    }
+
+    .card-details[open] .details-chevron {
+        transform: rotate(180deg);
+    }
+
+    .card-long-desc {
+        font-family: var(--font-sans);
+        font-size: clamp(0.825rem, 1.5vw, 0.925rem);
+        line-height: 1.75;
+        color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent);
+        margin: 0;
+        padding-left: 0.75rem;
+        border-left: 2px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 30%, transparent);
+        animation: expand-in 0.25s ease-out;
+    }
+
+    @keyframes expand-in {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Role Badge ──────────────────────────────────────────── */
+
+    .card-role {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--proj-color, var(--color-accent));
+        background: color-mix(in srgb, var(--proj-color, var(--color-accent)) 10%, transparent);
+        border: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 25%, transparent);
+        padding: 0.3rem 0.75rem;
+    }
+
+    /* ─── Tech Stack ──────────────────────────────────────────── */
+
+    .card-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .stack-badge {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.04em;
+        color: var(--color-text-secondary);
+        background: color-mix(in srgb, var(--proj-color, var(--color-accent)) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 18%, transparent);
+        padding: 0.25rem 0.6rem;
+        transition:
+            color 0.2s ease,
+            background 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+        cursor: default;
+    }
+
+    .stack-badge:hover {
+        color: var(--proj-color, var(--color-accent));
+        background: color-mix(in srgb, var(--proj-color, var(--color-accent)) 14%, transparent);
+        border-color: color-mix(in srgb, var(--proj-color, var(--color-accent)) 40%, transparent);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--proj-color, var(--color-accent)) 15%, transparent);
+    }
+
+    /* ─── Links ───────────────────────────────────────────────── */
+
+    .card-links {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+        flex-wrap: wrap;
+        margin-top: 0.25rem;
+    }
+
+    .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition:
+            color 0.2s ease,
+            background 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .card-link--primary {
+        color: var(--color-background);
+        background: var(--proj-color, var(--color-accent));
+        border: 1px solid var(--proj-color, var(--color-accent));
+    }
+
+    .card-link--primary:hover {
+        background: color-mix(in srgb, var(--proj-color, var(--color-accent)) 85%, white);
+        transform: translateY(-1px);
+    }
+
+    .card-link--ghost {
+        color: var(--color-text-secondary);
+        background: transparent;
+        border: 1px solid color-mix(in srgb, var(--color-text-secondary) 25%, transparent);
+    }
+
+    .card-link--ghost:hover {
+        color: var(--proj-color, var(--color-accent));
+        border-color: color-mix(in srgb, var(--proj-color, var(--color-accent)) 40%, transparent);
+        transform: translateY(-1px);
+    }
+
+    /* ─── Visual Panel ────────────────────────────────────────── */
+
+    .card-visual {
+        grid-area: visual;
+        display: flex;
+        align-items: stretch;
+        padding: clamp(1.25rem, 3vw, 2rem);
+        background: color-mix(in srgb, var(--color-background) 40%, transparent);
+        min-height: 220px;
+    }
+
+    @media (min-width: 768px) {
+        .card-visual {
+            border-left: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 15%, transparent);
+            min-height: 340px;
+        }
+    }
+
+    .browser-frame {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 20%, transparent);
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px color-mix(in srgb, var(--proj-color, var(--color-accent)) 6%, transparent),
+            0 16px 40px color-mix(in srgb, #000 50%, transparent);
+    }
+
+    /* ─── Browser Chrome ──────────────────────────────────────── */
+
+    .browser-chrome {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0.875rem;
+        background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+        border-bottom: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 12%, transparent);
+        flex-shrink: 0;
+    }
+
+    .chrome-dots {
+        display: flex;
+        gap: 0.35rem;
+        flex-shrink: 0;
+    }
+
+    .chrome-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .chrome-dot--red    { background: #ff5f57; }
+    .chrome-dot--yellow { background: #febc2e; }
+    .chrome-dot--green  { background: #28c840; }
+
+    .chrome-url {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex: 1;
+        background: color-mix(in srgb, var(--color-background) 60%, transparent);
+        border: 1px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 12%, transparent);
+        padding: 0.25rem 0.75rem;
+        min-width: 0;
+    }
+
+    .url-lock {
+        color: color-mix(in srgb, var(--proj-color, var(--color-accent)) 70%, transparent);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .url-text {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.04em;
+        color: var(--color-text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ─── Viewport ────────────────────────────────────────────── */
+
+    .browser-viewport {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            160deg,
+            color-mix(in srgb, var(--color-background) 95%, var(--proj-color)) 0%,
+            var(--color-background) 50%,
+            color-mix(in srgb, var(--color-surface) 70%, var(--proj-color)) 100%
+        );
+        overflow: hidden;
+        min-height: 140px;
+    }
+
+    .viewport-grid {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+            circle,
+            color-mix(in srgb, var(--proj-color, #6C63FF) 22%, transparent) 1px,
+            transparent 1px
+        );
+        background-size: 28px 28px;
+        opacity: 0.18;
+        pointer-events: none;
+    }
+
+    .viewport-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 60% 60% at 50% 50%,
+            color-mix(in srgb, var(--proj-color, var(--color-accent)) 12%, transparent),
+            transparent 70%
+        );
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .viewport-glow {
+        opacity: 1.5;
+    }
+
+    .viewport-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .viewport-project-name {
+        font-family: var(--font-sans);
+        font-size: clamp(1rem, 2.5vw, 1.4rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: color-mix(in srgb, var(--color-text-primary) 70%, transparent);
+        margin: 0;
+    }
+
+    .viewport-domain {
+        font-family: var(--font-mono);
+        font-size: clamp(0.65rem, 1.2vw, 0.78rem);
+        letter-spacing: 0.06em;
+        color: color-mix(in srgb, var(--proj-color, var(--color-accent)) 80%, transparent);
+        margin: 0;
+    }
+
+    .viewport-live {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #4ade80;
+        margin-top: 0.25rem;
+    }
+
+    .live-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #4ade80;
+        box-shadow: 0 0 6px #4ade80;
+        animation: live-pulse 2s ease-in-out infinite;
+        flex-shrink: 0;
+    }
+
+    /* ─── Scroll-reveal ───────────────────────────────────────── */
+
+    .proj-reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+            opacity 0.7s ease-out,
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .proj-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ─── Keyframes ───────────────────────────────────────────── */
+
+    @keyframes live-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 6px #4ade80; }
+        50%       { opacity: 0.5; box-shadow: 0 0 2px #4ade80; }
+    }
+
+    /* ─── Reduced Motion ──────────────────────────────────────── */
+
+    @media (prefers-reduced-motion: reduce) {
+        .proj-reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .project-card:hover {
+            transform: none;
+        }
+
+        .stack-badge:hover,
+        .card-link:hover {
+            transform: none;
+        }
+
+        .live-dot {
+            animation: none;
+        }
+    }
+</style>

@@ -2,8 +2,10 @@
     {
         "id": "gem-escavatori",
         "title": "G&M Escavatori",
-        "description": "",
-        "longDescription": "",
+        "description": "Corporate website for a civil earthmoving company. Built from scratch: service sections, photo gallery, and contact form — designed to work on any device and load fast for clients in the field.",
+        "longDescription": "Full custom website for a local civil earthmoving company. The goal was a clean, professional online presence that clearly communicates services and makes it easy for potential clients to get in touch. Built with vanilla HTML, CSS, and JavaScript with a PHP-powered contact form.",
+        "techStack": ["Next.js", "Tailwind CSS", "TypeScript", "Resend", "Vercel"],
+        "role": "Solo Developer",
         "githubUrl": null,
         "liveUrl": "https://www.gem-escavatori.it/",
         "featured": true,
