@@ -71,8 +71,6 @@ const navLinks = [
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
     /* ── Scroll progress ───────────────────────────── */
 
     #scroll-bar {
@@ -426,11 +424,18 @@ const navLinks = [
     const scrollBar = document.getElementById('scroll-bar') as HTMLElement;
     const navbar    = document.getElementById('navbar') as HTMLElement;
 
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const total    = document.documentElement.scrollHeight - window.innerHeight;
-        scrollBar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
-        navbar.classList.toggle('is-scrolled', scrolled > 24);
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrolled = window.scrollY;
+                const total    = document.documentElement.scrollHeight - window.innerHeight;
+                scrollBar.style.width = total > 0 ? `${(scrolled / total) * 100}%` : '0%';
+                navbar.classList.toggle('is-scrolled', scrolled > 24);
+                ticking = false;
+            });
+            ticking = true;
+        }
     }, { passive: true });
 
     /* ── Mobile overlay toggle ─────────────────── */
