@@ -458,7 +458,9 @@ const navLinks = [
         labelClose.classList.add('btn-label-hidden');
         document.body.style.overflow = '';
         overlay.addEventListener('transitionend', () => {
-            overlay.hidden = true;
+            if (!overlay.classList.contains('is-open')) {
+                overlay.hidden = true;
+            }
         }, { once: true });
     }
 
