@@ -3,7 +3,6 @@ interface Project {
     id: string;
     title: string;
     description: string;
-    longDescription?: string;
     techStack: string[];
     role?: string;
     githubUrl: string | null;
@@ -60,21 +59,7 @@ const domain = extractDomain(project.liveUrl);
         <h3 class="card-title">{project.title}</h3>
 
         <!-- Description -->
-        {project.longDescription ? (
-            <details class="card-details">
-                <summary class="card-desc card-desc--summary">
-                    {project.description}
-                    <span class="details-toggle" aria-hidden="true">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="details-chevron">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
-                    </span>
-                </summary>
-                <p class="card-long-desc">{project.longDescription}</p>
-            </details>
-        ) : (
-            <p class="card-desc">{project.description}</p>
-        )}
+        <p class="card-desc">{project.description}</p>
 
         <!-- Role badge -->
         {project.role && (
@@ -300,65 +285,6 @@ const domain = extractDomain(project.liveUrl);
         line-height: 1.75;
         color: var(--color-text-secondary);
         margin: 0;
-    }
-
-    /* ─── Details / Read More ─────────────────────────────────── */
-
-    .card-details {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .card-desc--summary {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 0.75rem;
-        cursor: pointer;
-        list-style: none;
-        outline: none;
-    }
-
-    /* Remove default disclosure triangle */
-    .card-desc--summary::-webkit-details-marker { display: none; }
-    .card-desc--summary::marker { display: none; }
-
-    .details-toggle {
-        flex-shrink: 0;
-        margin-top: 0.3em;
-        color: var(--proj-color, var(--color-accent));
-        opacity: 0.7;
-        transition: opacity 0.2s ease;
-    }
-
-    .card-desc--summary:hover .details-toggle {
-        opacity: 1;
-    }
-
-    .details-chevron {
-        display: block;
-        transition: transform 0.25s ease;
-    }
-
-    .card-details[open] .details-chevron {
-        transform: rotate(180deg);
-    }
-
-    .card-long-desc {
-        font-family: var(--font-sans);
-        font-size: clamp(0.825rem, 1.5vw, 0.925rem);
-        line-height: 1.75;
-        color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent);
-        margin: 0;
-        padding-left: 0.75rem;
-        border-left: 2px solid color-mix(in srgb, var(--proj-color, var(--color-accent)) 30%, transparent);
-        animation: expand-in 0.25s ease-out;
-    }
-
-    @keyframes expand-in {
-        from { opacity: 0; transform: translateY(-6px); }
-        to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ─── Role Badge ──────────────────────────────────────────── */
