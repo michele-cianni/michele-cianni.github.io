@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michele Cianni — CV</title>
+    <meta name="description" content="Curriculum Vitae of Michele Cianni — Full-Stack Developer & AI Enthusiast">
+    <meta name="theme-color" content="#0A0A0F">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+    <style>
+        /* ─── Design tokens (matching portfolio) ─────── */
+        :root {
+            --bg: #0A0A0F;
+            --surface: #1A1A2E;
+            --accent: #6C63FF;
+            --text-1: #E4E4E7;
+            --text-2: #9CA3AF;
+            --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+            --font-display: 'Bebas Neue', cursive;
+            --max-w: 56rem;
+        }
+
+        /* ─── Reset ──────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text-1);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
+        a:hover { opacity: .75; }
+        ul { list-style: none; }
+
+        /* ─── Background atmosphere ──────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
+                radial-gradient(ellipse 40% 40% at 85% 15%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: radial-gradient(ellipse 70% 70% at 15% 85%, black 20%, transparent 70%);
+            opacity: .25;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── Page wrapper ───────────────────────────── */
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem clamp(1.25rem, 6vw, 3rem) 5rem;
+        }
+
+        /* ─── Top bar (back link + print) ────────────── */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+        }
+
+        .back-link {
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            letter-spacing: .1em;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: .4em;
+        }
+
+        .back-link .arrow { transition: transform .2s; }
+        .back-link:hover .arrow { transform: translateX(-3px); }
+        .back-link:hover { opacity: 1; }
+
+        .print-btn {
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-2);
+            background: transparent;
+            border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+            padding: .4rem 1rem;
+            cursor: pointer;
+            transition: border-color .2s, color .2s, background .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: .4em;
+        }
+
+        .print-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 6%, transparent);
+            opacity: 1;
+        }
+
+        /* ─── Header ─────────────────────────────────── */
+        .cv-header {
+            margin-bottom: 3rem;
+        }
+
+        .cv-eyebrow {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            letter-spacing: .2em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            opacity: .7;
+        }
+
+        .cv-name {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            line-height: .9;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            color: var(--text-1);
+            margin-bottom: 1rem;
+        }
+
+        .cv-tagline {
+            font-size: 1.05rem;
+            color: var(--text-2);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ─── Contact pills ──────────────────────────── */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .contact-pill {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            letter-spacing: .04em;
+            color: var(--text-2);
+            padding: .35rem .85rem;
+            background: color-mix(in srgb, var(--surface) 70%, transparent);
+            border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+            display: inline-flex;
+            align-items: center;
+            gap: .45em;
+            transition: border-color .2s, color .2s;
+        }
+
+        .contact-pill:hover {
+            border-color: var(--accent);
+            color: var(--text-1);
+            opacity: 1;
+        }
+
+        .contact-pill .pill-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ─── Section ────────────────────────────────── */
+        .section {
+            margin-bottom: 2.75rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: .6rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+        }
+
+        .section-index {
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            font-weight: 500;
+            color: var(--accent);
+            opacity: .55;
+            letter-spacing: .05em;
+        }
+
+        .section-sep {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--text-2);
+            opacity: .25;
+        }
+
+        .section-title {
+            font-family: var(--font-sans);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--text-1);
+        }
+
+        /* ─── Experience entry ───────────────────────── */
+        .entry {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .35rem;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 10%, transparent));
+        }
+
+        .entry:last-child { margin-bottom: 0; }
+
+        .entry-top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: .5rem .75rem;
+            margin-bottom: .35rem;
+        }
+
+        .entry-company {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-1);
+        }
+
+        .entry-company a { color: var(--text-1); }
+        .entry-company a:hover { color: var(--accent); opacity: 1; }
+
+        .entry-role {
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            color: var(--accent);
+            opacity: .8;
+        }
+
+        .entry-meta {
+            font-family: var(--font-mono);
+            font-size: .68rem;
+            color: var(--text-2);
+            letter-spacing: .04em;
+            margin-bottom: .6rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .15rem .6rem;
+        }
+
+        .entry-meta .sep {
+            opacity: .3;
+        }
+
+        .entry-bullets li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: .45rem;
+            font-size: .875rem;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        .entry-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .65em;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            opacity: .5;
+        }
+
+        .entry-bullets strong {
+            color: var(--text-1);
+            font-weight: 600;
+        }
+
+        /* ─── Project entry ──────────────────────────── */
+        .project-entry {
+            margin-bottom: 1.75rem;
+        }
+
+        .project-entry:last-child { margin-bottom: 0; }
+
+        .project-top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: .25rem .6rem;
+            margin-bottom: .3rem;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--text-1);
+        }
+
+        .project-name a { color: var(--text-1); }
+        .project-name a:hover { color: var(--accent); opacity: 1; }
+
+        .project-year {
+            font-family: var(--font-mono);
+            font-size: .68rem;
+            color: var(--text-2);
+            opacity: .7;
+        }
+
+        .project-desc {
+            font-size: .875rem;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: .4rem;
+            font-size: .85rem;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        .project-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .65em;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            opacity: .5;
+        }
+
+        .project-bullets strong {
+            color: var(--text-1);
+            font-weight: 600;
+        }
+
+        /* ─── Course entry ───────────────────────────── */
+        .course {
+            display: flex;
+            align-items: baseline;
+            gap: .6rem;
+            margin-bottom: .6rem;
+            flex-wrap: wrap;
+        }
+
+        .course-name {
+            font-size: .875rem;
+            font-weight: 600;
+            color: var(--text-1);
+        }
+
+        .course-provider {
+            font-family: var(--font-mono);
+            font-size: .68rem;
+            color: var(--accent);
+            opacity: .7;
+        }
+
+        /* ─── Skills grid ────────────────────────────── */
+        .skills-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .skill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .35rem .5rem;
+            align-items: baseline;
+        }
+
+        .skill-category {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: .06em;
+            min-width: 10rem;
+            flex-shrink: 0;
+            opacity: .8;
+        }
+
+        .skill-items {
+            font-size: .85rem;
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        /* ─── Languages row ──────────────────────────── */
+        .lang-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: baseline;
+            gap: .4rem;
+        }
+
+        .lang-name {
+            font-size: .875rem;
+            font-weight: 600;
+            color: var(--text-1);
+        }
+
+        .lang-level {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--text-2);
+            opacity: .7;
+        }
+
+        /* ─── Footer strip ───────────────────────────── */
+        .cv-footer {
+            margin-top: 3.5rem;
+            padding-top: .875rem;
+            border-top: 1px solid color-mix(in srgb, var(--text-2) 10%, transparent);
+            font-family: var(--font-mono);
+            font-size: .56rem;
+            color: var(--text-2);
+            opacity: .2;
+            letter-spacing: .07em;
+        }
+
+        /* ─── Animations ─────────────────────────────── */
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .cv-header,
+        .section,
+        .top-bar {
+            animation: fade-up .5s ease-out both;
+        }
+
+        .top-bar   { animation-delay: .05s; }
+        .cv-header { animation-delay: .12s; }
+        .section:nth-child(1) { animation-delay: .2s; }
+        .section:nth-child(2) { animation-delay: .28s; }
+        .section:nth-child(3) { animation-delay: .36s; }
+        .section:nth-child(4) { animation-delay: .44s; }
+        .section:nth-child(5) { animation-delay: .52s; }
+        .section:nth-child(6) { animation-delay: .6s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cv-header, .section, .top-bar {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ─── Print styles ───────────────────────────── */
+        @media print {
+            :root {
+                --bg: #fff;
+                --surface: #f4f4f5;
+                --accent: #4338ca;
+                --text-1: #18181b;
+                --text-2: #52525b;
+            }
+
+            body::before, body::after { display: none; }
+            .top-bar { display: none; }
+
+            .page { padding: 0; max-width: 100%; }
+
+            .cv-name { font-size: 2.5rem; }
+
+            .cv-header, .section, .top-bar {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            .entry::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .entry-bullets li::before,
+            .project-bullets li::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .contact-pill { border-color: #d4d4d8; }
+        }
+
+        /* ─── Responsive ─────────────────────────────── */
+        @media (max-width: 640px) {
+            .skill-row {
+                flex-direction: column;
+                gap: .15rem;
+            }
+
+            .skill-category {
+                min-width: auto;
+            }
+
+            .entry-top {
+                flex-direction: column;
+                gap: .15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- Top bar -->
+        <div class="top-bar">
+            <a href="/" class="back-link">
+                <span class="arrow">&larr;</span> back to portfolio
+            </a>
+            <a href="/files/Michele-Cianni_CV.pdf" download class="print-btn">Download PDF</a>
+        </div>
+
+        <!-- Header -->
+        <header class="cv-header">
+            <p class="cv-eyebrow">// curriculum vitae</p>
+            <h1 class="cv-name">Michele<br>Cianni</h1>
+            <p class="cv-tagline">Full-Stack Developer &amp; AI Enthusiast</p>
+
+            <div class="contact-row">
+                <a href="mailto:cianni.michele.private@gmail.com" class="contact-pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    cianni.michele.private@gmail.com
+                </a>
+                <a href="tel:+393661577399" class="contact-pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    +39 366 157 7399
+                </a>
+                <span class="contact-pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Italy
+                </span>
+                <a href="https://github.com/michele-cianni" class="contact-pill" target="_blank" rel="noopener noreferrer">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/michele-cianni" class="contact-pill" target="_blank" rel="noopener noreferrer">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </header>
+
+        <!-- Work Experience -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">01</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Work Experience</span>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-company"><a href="https://www.giuffrefrancislefebvre.it/" target="_blank" rel="noopener noreferrer">Giuffr&egrave; Francis Lefebvre</a></span>
+                    <span class="entry-role">Backend Developer</span>
+                </div>
+                <div class="entry-meta">
+                    <span>Macerata (MC), Italy</span>
+                    <span class="sep">&middot;</span>
+                    <span>2023 &ndash; 2024</span>
+                    <span class="sep">&middot;</span>
+                    <span>2 years</span>
+                </div>
+                <ul class="entry-bullets">
+                    <li>Developed and maintained a web-based management system for drafting legal documents, used by over <strong>15,000 lawyers</strong> in compliance with the requirements of the Italian Ministry of Justice.</li>
+                    <li>Optimized and refactored <strong>REST APIs</strong> in Java 17 (Javalin), reducing response times by <strong>23%</strong>, and defined new shared <strong>API contracts</strong> with the frontend team to support the migration from Alpaca Forms to <strong>React</strong>.</li>
+                    <li>Introduced a three-tier <strong>Gitflow branching strategy</strong> (development, beta, production) into a workflow previously based on a single main branch, ensuring consistent versions across environments and drastically reducing deployment conflicts.</li>
+                    <li>Authored <strong>Swagger API documentation</strong> and promoted <strong>pair programming</strong> sessions, cutting onboarding time for new developers in half.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-company"><a href="https://www.ctfautomazioni.com/" target="_blank" rel="noopener noreferrer">C.T.F. Automazioni</a></span>
+                    <span class="entry-role">Software Developer</span>
+                </div>
+                <div class="entry-meta">
+                    <span>Matelica (MC), Italy</span>
+                    <span class="sep">&middot;</span>
+                    <span>2022</span>
+                    <span class="sep">&middot;</span>
+                    <span>3 months</span>
+                </div>
+                <ul class="entry-bullets">
+                    <li>Developed a full-stack management system with <strong>.NET</strong>, <strong>MVC</strong>, and <strong>Microsoft SQL Server</strong> to digitize company visit tracking, replacing a manual registration process.</li>
+                    <li>Designed a <strong>Windows Forms</strong> interface for real-time visualization of data from a robotic screen-printing system, enabling operators to respond promptly to production anomalies.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">02</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Education</span>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-company"><a href="https://www.unipegaso.it/" target="_blank" rel="noopener noreferrer">Universit&agrave; Telematica Pegaso</a></span>
+                    <span class="entry-role">BS &mdash; Artificial Intelligence</span>
+                </div>
+                <div class="entry-meta">
+                    <span>2026 &ndash; present</span>
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-company"><a href="https://www.unicam.it/" target="_blank" rel="noopener noreferrer">Universit&agrave; di Camerino</a></span>
+                    <span class="entry-role">Computer Science</span>
+                </div>
+                <div class="entry-meta">
+                    <span>2019 &ndash; 2026</span>
+                </div>
+                <ul class="entry-bullets">
+                    <li>Transferred the degree path to Universit&agrave; Telematica Pegaso to balance work and study.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">03</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Projects</span>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://www.gem-escavatori.it/" target="_blank" rel="noopener noreferrer">G&amp;M Escavatori</a></span>
+                    <span class="project-year">2026</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Full-stack architecture with <strong>Next.js 16</strong> (App Router), <strong>React 19</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS 4</strong>, using static site generation (<strong>SSG</strong>) to maximize performance (Lighthouse target &gt; 95)</li>
+                    <li>Dynamic product catalog (~15 items) with statically generated pages, category filters, and detail pages featuring technical specifications and price comparisons</li>
+                    <li>Integrated contact system: forms with client/server validation (<strong>Zod</strong> + <strong>React Hook Form</strong>), transactional email delivery via <strong>Resend</strong>, and product-specific WhatsApp CTAs</li>
+                    <li><strong>Mobile-first responsive</strong> design with a custom UI component library, sticky navigation with hamburger menu, and a floating WhatsApp FAB</li>
+                    <li>Deployed on <strong>Vercel</strong> with automated <strong>CI/CD</strong>, integrated analytics, and image optimization (WebP/AVIF)</li>
+                    <li>JSON-based flat-file CMS, designed to be easily migrated to a <strong>headless CMS</strong> (Sanity/Strapi) as the catalog grows</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://github.com/michele-cianni/duana" target="_blank" rel="noopener noreferrer">Duana</a></span>
+                    <span class="project-year">2025</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Developed a <strong>CLI disk usage analyzer</strong> in <strong>C</strong> for Linux featuring recursive directory traversal, extension filtering, sorting options, and <strong>JSON export</strong> with atomic writes and signal handling.</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://github.com/michele-cianni/jbudget" target="_blank" rel="noopener noreferrer">JBudget</a></span>
+                    <span class="project-year">2025</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Developed a <strong>Java</strong> application for household budget management using <strong>MVC</strong>, <strong>SOLID principles</strong>, and design patterns (Observer, Strategy, Factory, Repository) to track transactions, plan future expenses, and analyze spending trends.</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://github.com/michele-cianni/grade-submission" target="_blank" rel="noopener noreferrer">Grade Submissions System</a></span>
+                    <span class="project-year">2023</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Implemented a secure server with <strong>RESTful</strong> and <strong>layered architecture</strong> to manage grade submissions efficiently. Used <strong>Spring Boot</strong> and <strong>PostgreSQL</strong> to store and retrieve data while ensuring integrity and security.</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://github.com/michele-cianni/wave-game" target="_blank" rel="noopener noreferrer">Wave</a></span>
+                    <span class="project-year">2019 &ndash; 2020</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Developed a simple 2D arcade game in which players survive waves of enemies, playable in single-player or co-op mode. Applied <strong>Object-Oriented Programming (OOP)</strong> principles to create reusable components, such as enemy AI and dynamic level generation.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">04</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Courses &amp; Certifications</span>
+            </div>
+
+            <div class="course">
+                <span class="course-name">Claude Code &mdash; The Practical Guide</span>
+                <a href="https://www.udemy.com/certificate/UC-daca2b67-2bb2-455c-b885-e505fbda08cb/" class="course-provider" target="_blank" rel="noopener noreferrer">Udemy &nearr;</a>
+            </div>
+            <div class="course">
+                <span class="course-name">The Complete Spring Boot Development Bootcamp</span>
+                <a href="https://www.udemy.com/certificate/UC-b2959640-f054-4a01-83e9-b1602c6c294a/" class="course-provider" target="_blank" rel="noopener noreferrer">Udemy &nearr;</a>
+            </div>
+            <div class="course">
+                <span class="course-name">Advanced Java Topics: Java Reflection &mdash; Master Class</span>
+                <a href="https://www.udemy.com/certificate/UC-3d5ccd39-6688-4a46-9cf0-018839151aff/" class="course-provider" target="_blank" rel="noopener noreferrer">Udemy &nearr;</a>
+            </div>
+            <div class="course">
+                <span class="course-name">Java Multithreading, Concurrency &amp; Performance Optimization</span>
+                <a href="https://www.udemy.com/certificate/UC-19af3136-efd5-41f3-9c26-a96e7487e32d/" class="course-provider" target="_blank" rel="noopener noreferrer">Udemy &nearr;</a>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">05</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Skills</span>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-row">
+                    <span class="skill-category">Languages</span>
+                    <span class="skill-items">Java, C#, TypeScript, JavaScript, Python, C, SQL, HTML, CSS, UML</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-category">Frameworks</span>
+                    <span class="skill-items">Next.js, React, Tailwind CSS, Javalin, Spring Boot, .NET, JUnit, Mockito</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-category">Databases & Infra</span>
+                    <span class="skill-items">PostgreSQL, Docker, Kubernetes, Jenkins, SonarQube, Maven, Gradle</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-category">Tools</span>
+                    <span class="skill-items">Git, GitLab, GitHub, JetBrains IDEs, Visual Studio Code, Postman, Swagger, Jira, Confluence, Slack</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-category">Methodologies</span>
+                    <span class="skill-items">OOP, TDD, CI/CD, Design Patterns, SOLID, Agile, Scrum, Kanban, MVC, Microservices, RESTful, SOAP</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-index">06</span>
+                <span class="section-sep">/</span>
+                <span class="section-title">Languages</span>
+            </div>
+
+            <div class="lang-row">
+                <div class="lang-item">
+                    <span class="lang-name">Italian</span>
+                    <span class="lang-level">(Native)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">(B2)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="cv-footer">
+            process.exit(0) &nbsp;// end of cv
+        </footer>
+
+    </div>
+</body>
+
+</html>
