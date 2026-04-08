@@ -1,9 +1,12 @@
 ---
+import profile from '../data/profile.json';
+
 const navLinks = [
     { label: 'About',    href: '#about',    index: '01' },
     { label: 'Skills',   href: '#skills',   index: '02' },
     { label: 'Projects', href: '#projects', index: '03' },
     { label: 'Contact',  href: '#contact',  index: '04' },
+    { label: 'CV',       href: profile.cvUrl, index: '05', external: true },
 ];
 ---
 
@@ -22,9 +25,9 @@ const navLinks = [
 
         <!-- Desktop nav: indexed items -->
         <ul class="nav-list" role="list">
-            {navLinks.map(({ label, href, index }) => (
+            {navLinks.map(({ label, href, index, external }) => (
                 <li>
-                    <a href={href} class="nav-item">
+                    <a href={href} class="nav-item" {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                         <span class="nav-index">{index}</span>
                         <span class="nav-sep">/</span>
                         <span class="nav-label">{label}</span>
@@ -55,8 +58,8 @@ const navLinks = [
     <span class="overlay-mark" aria-hidden="true">// nav</span>
 
     <nav class="overlay-nav" aria-label="Mobile navigation">
-        {navLinks.map(({ label, href, index }) => (
-            <a href={href} class="overlay-link" data-index={index}>
+        {navLinks.map(({ label, href, index, external }) => (
+            <a href={href} class="overlay-link" data-index={index} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                 <span class="overlay-index" aria-hidden="true">{index}</span>
                 <span class="overlay-label">{label}</span>
                 <span class="overlay-arrow" aria-hidden="true">→</span>
