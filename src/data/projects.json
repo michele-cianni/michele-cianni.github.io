@@ -2,12 +2,23 @@
     {
         "id": "gem-escavatori",
         "title": "G&M Escavatori",
-        "description": "Freelance project: a full-stack business website for a small Italian company importing and reselling Chinese construction and agricultural machinery. Built with Next.js, TypeScript, and Tailwind CSS v4, featuring a static product catalog, server-side validated contact form with transactional email, and SEO optimization targeting Italian search traffic. The project required working closely with a non-technical client: translating business requirements into technical decisions and managing scope independently.",
+        "description": "Freelance project: a full-stack business website for a small Italian company importing and reselling Chinese construction and agricultural machinery. Features a static product catalog, server-side validated contact form with transactional email, and SEO optimization targeting Italian search traffic. The project required working closely with a non-technical client: translating business requirements into technical decisions and managing scope independently.",
         "techStack": ["Next.js", "Tailwind CSS", "TypeScript", "Resend", "Vercel"],
         "role": "Solo Developer",
         "githubUrl": null,
         "liveUrl": "https://www.gem-escavatori.it/",
         "featured": true,
         "order": 1
+    },
+    {
+        "id": "ledershow",
+        "title": "Ledershow",
+        "description": "Freelance project: for a German SME in industrial machinery I translated business requirements into a clear, lead-oriented web platform. I delivered a full-stack website with a product catalog, a server-side validated enquiry form, transactional email delivery, and technical SEO/performance optimization to support organic growth.",
+        "techStack": ["Next.js", "Tailwind CSS", "TypeScript", "Resend", "Vercel"],
+        "role": "Solo Developer",
+        "githubUrl": null,
+        "liveUrl": "https://www.ledershow.com/",
+        "featured": true,
+        "order": 2
     }
 ]
