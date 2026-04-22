@@ -37,6 +37,9 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Add CNAME
+        run: echo "michelecianni.dev" > ./dist/CNAME
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
