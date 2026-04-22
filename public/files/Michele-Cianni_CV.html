@@ -137,6 +137,17 @@
             opacity: .7;
         }
 
+        .cv-updated {
+            font-family: var(--font-mono);
+            font-size: .62rem;
+            letter-spacing: .08em;
+            color: var(--text-2);
+            margin-top: -.4rem;
+            margin-bottom: 1rem;
+            opacity: .75;
+            text-transform: uppercase;
+        }
+
         .cv-name {
             font-family: var(--font-display);
             font-size: clamp(3.5rem, 10vw, 6rem);
@@ -550,6 +561,7 @@
         <!-- Header -->
         <header class="cv-header">
             <p class="cv-eyebrow">// curriculum vitae</p>
+            <p class="cv-updated">Last updated 2026</p>
             <h1 class="cv-name">Michele<br>Cianni</h1>
             <p class="cv-tagline">Full-Stack Developer &amp; AI Enthusiast</p>
 
@@ -564,8 +576,12 @@
                 </a>
                 <span class="contact-pill">
                     <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Italy
+                    Gagliole (MC), Italy
                 </span>
+                <a href="https://www.michelecianni.dev" class="contact-pill" target="_blank" rel="noopener noreferrer">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l2.12-2.12a5 5 0 0 0-7.07-7.07L11.4 5.53"/><path d="M14 11a5 5 0 0 0-7.54-.54L4.34 12.58a5 5 0 0 0 7.07 7.07l1.17-1.17"/></svg>
+                    www.michelecianni.dev
+                </a>
                 <a href="https://github.com/michele-cianni" class="contact-pill" target="_blank" rel="noopener noreferrer">
                     <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                     GitHub
@@ -613,7 +629,7 @@
                 <div class="entry-meta">
                     <span>Matelica (MC), Italy</span>
                     <span class="sep">&middot;</span>
-                    <span>2022</span>
+                    <span>2022 &ndash; 2022</span>
                     <span class="sep">&middot;</span>
                     <span>3 months</span>
                 </div>
@@ -634,16 +650,6 @@
 
             <div class="entry">
                 <div class="entry-top">
-                    <span class="entry-company"><a href="https://www.unipegaso.it/" target="_blank" rel="noopener noreferrer">Universit&agrave; Telematica Pegaso</a></span>
-                    <span class="entry-role">BS &mdash; Artificial Intelligence</span>
-                </div>
-                <div class="entry-meta">
-                    <span>2026 &ndash; present</span>
-                </div>
-            </div>
-
-            <div class="entry">
-                <div class="entry-top">
                     <span class="entry-company"><a href="https://www.unicam.it/" target="_blank" rel="noopener noreferrer">Universit&agrave; di Camerino</a></span>
                     <span class="entry-role">Computer Science</span>
                 </div>
@@ -653,6 +659,16 @@
                 <ul class="entry-bullets">
                     <li>Transferred the degree path to Universit&agrave; Telematica Pegaso to balance work and study.</li>
                 </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-company"><a href="https://www.unipegaso.it/" target="_blank" rel="noopener noreferrer">Universit&agrave; Telematica Pegaso</a></span>
+                    <span class="entry-role">BS &mdash; Artificial Intelligence</span>
+                </div>
+                <div class="entry-meta">
+                    <span>2026 &ndash; present</span>
+                </div>
             </div>
         </div>
 
@@ -676,6 +692,21 @@
                     <li><strong>Mobile-first responsive</strong> design with a custom UI component library, sticky navigation with hamburger menu, and a floating WhatsApp FAB</li>
                     <li>Deployed on <strong>Vercel</strong> with automated <strong>CI/CD</strong>, integrated analytics, and image optimization (WebP/AVIF)</li>
                     <li>JSON-based flat-file CMS, designed to be easily migrated to a <strong>headless CMS</strong> (Sanity/Strapi) as the catalog grows</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-top">
+                    <span class="project-name"><a href="https://www.ledershow.it/" target="_blank" rel="noopener noreferrer">Ledershow</a></span>
+                    <span class="project-year">2026</span>
+                </div>
+                <ul class="project-bullets">
+                    <li>Designed and developed a modern, responsive company website using <strong>Next.js 16</strong>, <strong>React 19</strong>, and <strong>TypeScript</strong>.</li>
+                    <li>Built a scalable App Router architecture with reusable components, focusing on performance, SEO, and maintainability.</li>
+                    <li>Implemented multilingual support with <strong>next-intl</strong> and custom UI styling with <strong>Tailwind CSS v4</strong>.</li>
+                    <li>Developed product catalog and corporate pages to showcase industrial machinery and company services.</li>
+                    <li>Created a contact form with shared <strong>Zod</strong> validation and email delivery integration via <strong>Resend</strong>.</li>
+                    <li>Delivered the full user experience end-to-end, including content structure, mobile navigation, and legal pages.</li>
                 </ul>
             </div>
 
@@ -760,11 +791,11 @@
                     <span class="skill-items">Java, C#, TypeScript, JavaScript, Python, C, SQL, HTML, CSS, UML</span>
                 </div>
                 <div class="skill-row">
-                    <span class="skill-category">Frameworks</span>
+                    <span class="skill-category">Frameworks &amp; Libraries</span>
                     <span class="skill-items">Next.js, React, Tailwind CSS, Javalin, Spring Boot, .NET, JUnit, Mockito</span>
                 </div>
                 <div class="skill-row">
-                    <span class="skill-category">Databases & Infra</span>
+                    <span class="skill-category">Databases &amp; Infrastructure</span>
                     <span class="skill-items">PostgreSQL, Docker, Kubernetes, Jenkins, SonarQube, Maven, Gradle</span>
                 </div>
                 <div class="skill-row">
@@ -773,7 +804,7 @@
                 </div>
                 <div class="skill-row">
                     <span class="skill-category">Methodologies</span>
-                    <span class="skill-items">OOP, TDD, CI/CD, Design Patterns, SOLID, Agile, Scrum, Kanban, MVC, Microservices, RESTful, SOAP</span>
+                    <span class="skill-items">OOP, TDD, CI/CD, Design Patterns, SOLID Principles, Agile, Scrum, Kanban, MVC, Microservices, RESTful, SOAP</span>
                 </div>
             </div>
         </div>
@@ -783,7 +814,7 @@
             <div class="section-header">
                 <span class="section-index">06</span>
                 <span class="section-sep">/</span>
-                <span class="section-title">Languages</span>
+                <span class="section-title">Spoken Languages</span>
             </div>
 
             <div class="lang-row">
