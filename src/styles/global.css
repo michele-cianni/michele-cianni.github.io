@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-	--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
-	--color-background: #0A0A0F;
-	--color-surface: #1A1A2E;
-	--color-accent: #6C63FF;
-	--color-text-primary: #E4E4E7;
-	--color-text-secondary: #9CA3AF;
+	--color-paper:      #F6F1E7;
+	--color-paper-deep: #ECE4D4;
+	--color-ink:        #211C18;
+	--color-ink-soft:   #5B524A;
+	--color-accent:     #B5481F;
+	--color-seal:       #7A2E1E;
+	--color-line:       #D8CDB8;
+	--font-display: 'Fraunces', Georgia, serif;
+	--font-body:    'Newsreader', Georgia, serif;
 }
 
 /* ── Base ─────────────────────────────────────────── */
@@ -18,21 +20,27 @@ html {
 }
 
 body {
-	font-family: var(--font-sans);
-	background-color: var(--color-background);
-	color: var(--color-text-primary);
+	font-family: var(--font-body);
+	background-color: var(--color-paper);
+	color: var(--color-ink);
 	line-height: 1.7;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Paper-grain noise texture — apply once, on <body> only. */
+.paper-grain {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-repeat: repeat;
+}
+
 /* ── Headings ─────────────────────────────────────── */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-sans);
+	font-family: var(--font-display);
 	font-weight: 700;
 	line-height: 1.2;
-	color: var(--color-text-primary);
+	color: var(--color-ink);
 	margin-block: 0;
 }
 
@@ -47,7 +55,7 @@ h6 { font-size: 1rem; font-weight: 600; }
 
 p {
 	margin-block: 0;
-	color: var(--color-text-secondary);
+	color: var(--color-ink-soft);
 }
 
 a {
@@ -66,13 +74,13 @@ code,
 pre,
 kbd,
 samp {
-	font-family: var(--font-mono);
+	font-family: var(--font-body);
 	font-size: 0.875em;
 }
 
 /* Inline code */
 :not(pre) > code {
-	background-color: var(--color-surface);
+	background-color: var(--color-paper-deep);
 	color: var(--color-accent);
 	padding: 0.15em 0.4em;
 	border-radius: 0.25rem;
@@ -81,12 +89,12 @@ samp {
 
 /* Code blocks */
 pre {
-	background-color: var(--color-surface);
-	color: var(--color-text-primary);
+	background-color: var(--color-paper-deep);
+	color: var(--color-ink);
 	padding: 1.25rem 1.5rem;
 	border-radius: 0.5rem;
 	overflow-x: auto;
-	border: 1px solid color-mix(in srgb, var(--color-text-secondary) 15%, transparent);
+	border: 1px solid var(--color-line);
 	line-height: 1.6;
 }
 
