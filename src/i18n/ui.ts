@@ -13,6 +13,7 @@ export const ui = {
     'nav.work': 'Commissioni',
     'nav.about': 'Manifesto',
     'nav.contact': 'Contatto',
+    'about.heading': 'Manifesto',
     'hero.valueProp': 'Costruisco siti che portano clienti',
     'hero.subtitle':
       'Per piccole e medie imprese che vogliono un sito capace di portare clienti veri.',
@@ -26,6 +27,7 @@ export const ui = {
     'nav.work': 'Work',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'about.heading': 'About',
     'hero.valueProp': 'I build websites that bring you customers',
     'hero.subtitle':
       'For small and medium businesses that want a site that brings real customers.',
