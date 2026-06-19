@@ -1,4 +1,4 @@
-# Task — Redesign "La Bottega"
+# Task — Redesign sito
 
 Task derivati da [`../redesign-bottega.md`](../redesign-bottega.md).
 Ordine di esecuzione consigliato (le dipendenze sono indicate in ogni file).

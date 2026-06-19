@@ -1,5 +1,5 @@
 ---
-name: Bottega Cianni
+name: Michele Cianni
 description: Warm paper-and-ink portfolio for a freelance developer — case studies over tech lists
 colors:
   paper: "#F6F1E7"
@@ -37,11 +37,11 @@ components:
     padding: "0.875rem 2rem"
 ---
 
-# Design System: Bottega Cianni
+# Design System: Michele Cianni
 
 ## Overview
 
-**Creative North Star: "La Bottega" — the digital workshop.**
+**Creative North Star: a craftsperson's workshop, rendered in paper and ink.**
 
 A craftsperson's ledger, not a developer's terminal. The system trades the previous dark/neon dev-portfolio cliché (near-black background, neon-purple accent, dot-grid glow, fake terminal windows) for warm paper, ink, and a single confident terracotta accent — the visual register of a workshop record book, not a SaaS landing page. Depth and separation come from ledger-rule lines and generous space, never from shadow or blur.
 
@@ -83,7 +83,7 @@ A two-accent, paper-grounded palette: warm neutrals carry the page, terracotta c
 **Character:** A letterpress display serif paired with a calm reading serif — editorial and warm, not technical. Monospace is banned outright; it was the previous design's "developer" signal and is being deliberately removed.
 
 ### Hierarchy
-- **Display** (400, `clamp(2rem, 5vw, 3.5rem)`, line-height 1.2): page/section headings, wordmark "Bottega Cianni", "Commissione NN" numbering.
+- **Display** (400, `clamp(2rem, 5vw, 3.5rem)`, line-height 1.2): page/section headings, wordmark "Michele Cianni", "Commissione NN" numbering.
 - **Body** (400, 1rem, line-height 1.7): case-study copy, manifesto text. Cap at 65-75ch line length.
 - **Label** (500, 0.8125rem, letter-spacing 0.05em): micro-labels like "COMMISSIONE 01" — small-caps serif, never monospace.
 
@@ -114,7 +114,7 @@ The heart of the site. Not a card — a ledger entry. Top row: small-caps label 
 - **Error/Disabled:** *not yet specified in source docs — define during Task 08 implementation.*
 
 ### Navigation
-- Sober wordmark "Bottega Cianni" in Fraunces, IT/EN language toggle, no terminal-style logo, no blinking cursor, no scroll shimmer (all explicitly removed from the previous design).
+- Sober wordmark "Michele Cianni" in Fraunces, IT/EN language toggle, no terminal-style logo, no blinking cursor, no scroll shimmer (all explicitly removed from the previous design).
 
 ## Do's and Don'ts
 

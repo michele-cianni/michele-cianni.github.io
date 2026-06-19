@@ -1,7 +1,7 @@
 # Task 04 — Insegna (hero)
 
 **Dipende da:** 01, 02
-**Obiettivo:** sostituire l'hero "AI portfolio" con l'insegna della bottega.
+**Obiettivo:** sostituire l'hero "AI portfolio" con l'insegna del sito.
 
 ## File
 
@@ -9,7 +9,7 @@
 
 ## Contenuto
 
-- Wordmark "Bottega Cianni" in `--font-display`.
+- Wordmark "Michele Cianni" in `--font-display`.
 - **Value prop** forte in 1ª persona (da `ui.ts`): IT "Costruisco siti che portano
   clienti" / EN "I build websites that bring you customers".
 - Sottotitolo breve (chi serve / cosa fa).

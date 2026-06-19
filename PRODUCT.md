@@ -10,7 +10,7 @@ Freelance/SME clients in Italy and Germany (industrial/agricultural machinery se
 
 ## Product Purpose
 
-A personal portfolio that doubles as a client-acquisition tool — concept "La Bottega" (digital workshop / craftsperson). Showcases the two real freelance projects (G&M Escavatori, Ledershow) as case studies narrated problem → built → result, not as technology lists. Bilingual IT (default) / EN via native Astro i18n, for SEO reach in both markets. Success looks like a prospective SME client reading a case study and reaching out.
+A personal portfolio that doubles as a client-acquisition tool, framed around real outcomes rather than a tech-stack list. Showcases the two real freelance projects (G&M Escavatori, Ledershow) as case studies narrated problem → built → result, not as technology lists. Bilingual IT (default) / EN via native Astro i18n, for SEO reach in both markets. Success looks like a prospective SME client reading a case study and reaching out.
 
 ## Brand Personality
 

@@ -1,4 +1,4 @@
-# Redesign sito — Concept "La Bottega"
+# Redesign sito — tema carta
 
 Piano dettagliato per il redesign di `michele-cianni.github.io`.
 Stack invariato: **Astro 6 + Tailwind v4 (via Vite) + sitemap**.
@@ -25,7 +25,7 @@ Il problema non è il singolo effetto ma la **somma**: zero scelte personali.
 | Asse | Scelta |
 |------|--------|
 | Estetica | Warm / personale — carta calda, serif, voce in prima persona |
-| Concept | **La Bottega** (artigiano digitale) |
+| Concept | **Artigiano digitale** (carta, voce in prima persona) |
 | Pubblico | **Clienti freelance** (SME IT/DE) — prova, risultati, fiducia |
 | Lingua | **Bilingue IT/EN**, IT default, con toggle |
 | Ambizione | **Reinvenzione** (concept nuovo), stesso stack |
@@ -91,7 +91,7 @@ Fonts a `Fraunces` + `Newsreader`.
 
 | # | Sezione | Contenuto | Sostituisce |
 |---|---------|-----------|-------------|
-| 1 | **Insegna** (hero) | Wordmark "Bottega Cianni" + value prop forte 1ª persona ("Costruisco siti che portano clienti") + sottotitolo breve + CTA "Parliamo" / "I lavori". Toggle lingua nel nav. | `Hero.astro` |
+| 1 | **Insegna** (hero) | Wordmark "Michele Cianni" + value prop forte 1ª persona ("Costruisco siti che portano clienti") + sottotitolo breve + CTA "Parliamo" / "I lavori". Toggle lingua nel nav. | `Hero.astro` |
 | 2 | **Manifesto** | Chi sono + come lavoro, voce diretta. Spazio per **foto ritratto**. | `About.astro` (via card terminale) |
 | 3 | **Commissioni** ⭐ | Cuore del sito. Ogni progetto = case study editoriale: cliente+settore → problema → cosa ho costruito → risultato → tech come didascalia → link live. | `Projects.astro` + `ProjectCard.astro` (via browser-mockup) |
 | 4 | **Come lavoro** (opz.) | Cosa offro: sito vetrina, catalogo, form+email transazionale, SEO. Le skill confluiscono qui in modo discreto. | `Skills.astro` (badge wall) |
@@ -213,7 +213,7 @@ Titolo, tech, URL restano condivisi. In alternativa tenere la copy lunga in
 
 ## 6. File interessati
 
-**Da riscrivere (estetica Bottega + prop `lang`):**
+**Da riscrivere (estetica carta + prop `lang`):**
 - `src/styles/global.css` — tema carta (token, font, texture).
 - `src/components/Hero.astro` → Insegna.
 - `src/components/About.astro` → Manifesto (rimuovere card terminale).

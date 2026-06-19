@@ -1,7 +1,7 @@
 # Task 01 — Fondazione tema (palette + font + texture)
 
 **Dipende da:** —
-**Obiettivo:** sostituire l'identità dark/neon con il tema carta "Bottega".
+**Obiettivo:** sostituire l'identità dark/neon con il tema carta.
 È la base che cambia il colpo d'occhio di tutto il sito.
 
 ## File
