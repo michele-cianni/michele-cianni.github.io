@@ -25,6 +25,21 @@ export const ui = {
     'projects.problemLabel': 'Il problema',
     'projects.builtLabel': 'Cosa ho fatto',
     'projects.resultLabel': 'Il risultato',
+    'services.heading': 'Come lavoro',
+    'services.item1Title': 'Sito vetrina',
+    'services.item1Desc':
+      'Un sito su misura che presenta la tua attività esattamente come vuoi che i clienti la vedano.',
+    'services.item2Title': 'Catalogo prodotti',
+    'services.item2Desc':
+      'Schede prodotto chiare e facili da aggiornare, per mostrare quello che vendi senza affidarti a terzi.',
+    'services.item3Title': 'Form di contatto',
+    'services.item3Desc':
+      'Validato lato server, con email automatica ad ogni richiesta: nessun contatto si perde.',
+    'services.item4Title': 'SEO e performance',
+    'services.item4Desc':
+      'Sito veloce e indicizzabile: un sito lento o invisibile su Google non porta clienti.',
+    'services.toolsNote':
+      'Strumenti: Astro, Node.js, PostgreSQL, Tailwind CSS — la tecnologia è al servizio del risultato, non il contrario.',
   },
   en: {
     'meta.title': 'Michele Cianni — Full-Stack Developer',
@@ -45,5 +60,20 @@ export const ui = {
     'projects.problemLabel': 'The problem',
     'projects.builtLabel': 'What I built',
     'projects.resultLabel': 'The result',
+    'services.heading': 'How I work',
+    'services.item1Title': 'Showcase website',
+    'services.item1Desc':
+      'A custom-built site that presents your business exactly the way you want clients to see it.',
+    'services.item2Title': 'Product catalog',
+    'services.item2Desc':
+      'Clear, easy-to-update product pages, so you can show what you sell without relying on third parties.',
+    'services.item3Title': 'Contact form',
+    'services.item3Desc':
+      "Server-side validated, with an automatic email on every request — no inquiry gets lost.",
+    'services.item4Title': 'SEO and performance',
+    'services.item4Desc':
+      "A fast, indexable site — a slow or invisible site on Google doesn't bring you customers.",
+    'services.toolsNote':
+      'Tools: Astro, Node.js, PostgreSQL, Tailwind CSS — technology serves the outcome, not the other way around.',
   },
 } as const;
