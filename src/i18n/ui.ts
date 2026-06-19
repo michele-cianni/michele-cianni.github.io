@@ -40,6 +40,20 @@ export const ui = {
       'Sito veloce e indicizzabile: un sito lento o invisibile su Google non porta clienti.',
     'services.toolsNote':
       'Strumenti: Astro, Node.js, PostgreSQL, Tailwind CSS — la tecnologia è al servizio del risultato, non il contrario.',
+    'contact.heading': 'Parliamo del tuo progetto',
+    'contact.subtext':
+      'Raccontami di cosa hai bisogno: rispondo personalmente, senza intermediari.',
+    'contact.emailLabel': 'Email',
+    'contact.phoneLabel': 'Telefono',
+    'contact.nameLabel': 'Nome',
+    'contact.namePlaceholder': 'Il tuo nome',
+    'contact.emailFieldLabel': 'Email',
+    'contact.emailPlaceholder': 'tu@esempio.com',
+    'contact.subjectLabel': 'Oggetto',
+    'contact.subjectPlaceholder': 'Di cosa si tratta?',
+    'contact.messageLabel': 'Messaggio',
+    'contact.messagePlaceholder': 'Raccontami del tuo progetto...',
+    'contact.submitLabel': 'Invia messaggio',
   },
   en: {
     'meta.title': 'Michele Cianni — Full-Stack Developer',
@@ -75,5 +89,19 @@ export const ui = {
       "A fast, indexable site — a slow or invisible site on Google doesn't bring you customers.",
     'services.toolsNote':
       'Tools: Astro, Node.js, PostgreSQL, Tailwind CSS — technology serves the outcome, not the other way around.',
+    'contact.heading': "Let's talk about your project",
+    'contact.subtext':
+      "Tell me what you need: I reply personally, no middlemen.",
+    'contact.emailLabel': 'Email',
+    'contact.phoneLabel': 'Phone',
+    'contact.nameLabel': 'Name',
+    'contact.namePlaceholder': 'Your name',
+    'contact.emailFieldLabel': 'Email',
+    'contact.emailPlaceholder': 'you@example.com',
+    'contact.subjectLabel': 'Subject',
+    'contact.subjectPlaceholder': "What's on your mind?",
+    'contact.messageLabel': 'Message',
+    'contact.messagePlaceholder': 'Tell me about your project...',
+    'contact.submitLabel': 'Send message',
   },
 } as const;
