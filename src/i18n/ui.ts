@@ -12,7 +12,11 @@ export const ui = {
       'Portfolio di Michele Cianni: progetti reali, competenze e contatti.',
     'nav.work': 'Commissioni',
     'nav.about': 'Manifesto',
+    'nav.services': 'Servizi',
     'nav.contact': 'Contatto',
+    'nav.cv': 'CV',
+    'nav.menuOpen': 'Menu',
+    'nav.menuClose': 'Chiudi',
     'about.heading': 'Manifesto',
     'hero.valueProp': 'Costruisco siti che portano clienti',
     'hero.subtitle':
@@ -54,6 +58,7 @@ export const ui = {
     'contact.messageLabel': 'Messaggio',
     'contact.messagePlaceholder': 'Raccontami del tuo progetto...',
     'contact.submitLabel': 'Invia messaggio',
+    'footer.builtWith': 'Realizzato con',
   },
   en: {
     'meta.title': 'Michele Cianni — Full-Stack Developer',
@@ -61,7 +66,11 @@ export const ui = {
       "Michele Cianni's portfolio: real projects, skills, and contact info.",
     'nav.work': 'Work',
     'nav.about': 'About',
+    'nav.services': 'Services',
     'nav.contact': 'Contact',
+    'nav.cv': 'CV',
+    'nav.menuOpen': 'Menu',
+    'nav.menuClose': 'Close',
     'about.heading': 'About',
     'hero.valueProp': 'I build websites that bring you customers',
     'hero.subtitle':
@@ -103,5 +112,6 @@ export const ui = {
     'contact.messageLabel': 'Message',
     'contact.messagePlaceholder': 'Tell me about your project...',
     'contact.submitLabel': 'Send message',
+    'footer.builtWith': 'Built with',
   },
 } as const;
