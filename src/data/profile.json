@@ -1,7 +1,14 @@
 {
     "name": "Michele Cianni",
     "tagline": "Full-Stack Developer & AI Enthusiast",
-    "bio": "I'm a computer science student specializing in AI, with hands-on experience building backend systems in Java and Spring Boot. I enjoy solving real-world problems with clean, maintainable code and I'm actively learning machine learning and AI engineering.",
+    "claim": {
+        "it": "Costruisco siti che portano clienti",
+        "en": "I build websites that bring you customers"
+    },
+    "bio": {
+        "it": "Sono Michele Cianni, sviluppatore freelance. Costruisco siti e applicazioni web per piccole e medie imprese che hanno bisogno di una presenza online capace di portare clienti reali, non solo una vetrina. Lavoro direttamente con chi commissiona il progetto, dalla prima richiesta alla messa online, occupandomi sia della parte tecnica che della cura dei dettagli che fanno la differenza per chi visita il sito.",
+        "en": "I'm Michele Cianni, a freelance developer. I build websites and web applications for small and medium businesses that need an online presence that brings in real customers, not just a showcase. I work directly with whoever commissions the project, from the first request through launch, handling both the technical side and the details that make a difference for the people who visit the site."
+    },
     "github": "https://github.com/michele-cianni",
     "linkedin": "https://linkedin.com/in/michele-cianni",
     "telegram": "https://t.me/MicheleCianni",

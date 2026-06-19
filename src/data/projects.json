@@ -8,7 +8,23 @@
         "githubUrl": null,
         "liveUrl": "https://www.gem-escavatori.it/",
         "featured": true,
-        "order": 1
+        "order": 1,
+        "sector": {
+            "it": "Macchinari da cantiere e agricoli",
+            "en": "Construction & agricultural machinery"
+        },
+        "problem": {
+            "it": "Un'azienda italiana che importa e rivende macchinari cinesi da cantiere e agricoli aveva bisogno di un sito vetrina capace di presentare il catalogo prodotti e raccogliere richieste serie da clienti italiani, senza far perdere tempo al titolare in scambi a vuoto.",
+            "en": "An Italian company importing and reselling Chinese construction and agricultural machinery needed a website that could showcase its product catalog and collect serious inquiries from Italian customers, without wasting the owner's time on dead-end exchanges."
+        },
+        "built": {
+            "it": "Ho costruito un sito full-stack con catalogo prodotti statico, un modulo di contatto con validazione server-side e invio email transazionale, e un'ottimizzazione SEO mirata al traffico di ricerca italiano. Ho lavorato a stretto contatto con un cliente non tecnico, traducendo le sue esigenze di business in scelte tecniche e gestendo lo scope in autonomia.",
+            "en": "I built a full-stack website with a static product catalog, a server-side validated contact form with transactional email delivery, and SEO optimization targeting Italian search traffic. I worked closely with a non-technical client, translating business needs into technical decisions and managing scope independently."
+        },
+        "result": {
+            "it": "Il sito è online ed è ancora oggi il catalogo digitale principale dell'azienda.",
+            "en": "The site is live and still serves as the company's main digital catalog today."
+        }
     },
     {
         "id": "ledershow",
@@ -19,6 +35,22 @@
         "githubUrl": null,
         "liveUrl": "https://www.ledershow.com/",
         "featured": true,
-        "order": 2
+        "order": 2,
+        "sector": {
+            "it": "Macchinari industriali",
+            "en": "Industrial machinery"
+        },
+        "problem": {
+            "it": "Una PMI tedesca nel settore dei macchinari industriali aveva bisogno di una piattaforma web orientata alla generazione di contatti commerciali, capace di tradurre in modo chiaro l'offerta dell'azienda per chi cerca fornitori del settore.",
+            "en": "A German SME in industrial machinery needed a lead-oriented web platform that could clearly translate the company's offering for buyers searching for suppliers in the sector."
+        },
+        "built": {
+            "it": "Ho tradotto i requisiti di business del cliente in una piattaforma full-stack chiara e orientata ai contatti commerciali: catalogo prodotti, modulo di richiesta con validazione server-side, invio email transazionale, più ottimizzazione SEO e performance tecnica a supporto della crescita organica.",
+            "en": "I translated the client's business requirements into a clear, lead-oriented full-stack platform: a product catalog, a server-side validated enquiry form, transactional email delivery, and technical SEO/performance optimization to support organic growth."
+        },
+        "result": {
+            "it": "Il sito è online e continua a rappresentare la presenza digitale dell'azienda.",
+            "en": "The site is live and continues to serve as the company's digital presence."
+        }
     }
 ]

@@ -1,5 +1,7 @@
 ---
-interface Project {
+export type LocalizedString = { it: string; en: string };
+
+export interface Project {
     id: string;
     title: string;
     description: string;
@@ -9,6 +11,10 @@ interface Project {
     liveUrl: string | null;
     featured: boolean;
     order: number;
+    sector: LocalizedString;
+    problem: LocalizedString;
+    built: LocalizedString;
+    result: LocalizedString;
 }
 
 interface Props {
