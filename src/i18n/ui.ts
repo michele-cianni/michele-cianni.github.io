@@ -13,7 +13,11 @@ export const ui = {
     'nav.work': 'Commissioni',
     'nav.about': 'Manifesto',
     'nav.contact': 'Contatto',
-    'hero.valueProp': 'Costruisco siti che portano clienti, non solo demo.',
+    'hero.valueProp': 'Costruisco siti che portano clienti',
+    'hero.subtitle':
+      'Per piccole e medie imprese che vogliono un sito capace di portare clienti veri.',
+    'hero.ctaPrimary': 'Parliamo',
+    'hero.ctaSecondary': 'I lavori',
   },
   en: {
     'meta.title': 'Michele Cianni — Full-Stack Developer',
@@ -22,6 +26,10 @@ export const ui = {
     'nav.work': 'Work',
     'nav.about': 'About',
     'nav.contact': 'Contact',
-    'hero.valueProp': 'I build sites that bring in customers, not just demos.',
+    'hero.valueProp': 'I build websites that bring you customers',
+    'hero.subtitle':
+      'For small and medium businesses that want a site that brings real customers.',
+    'hero.ctaPrimary': "Let's talk",
+    'hero.ctaSecondary': 'The work',
   },
 } as const;
