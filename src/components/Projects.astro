@@ -1,30 +1,22 @@
 ---
 import projects from '../data/projects.json';
 import ProjectCard from './ProjectCard.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
 ---
 
-<section id="projects" class="projects" aria-label="Featured projects">
-    <!-- Background layers -->
-    <div class="projects-bg-grid" aria-hidden="true"></div>
-    <div class="projects-bg-glow" aria-hidden="true"></div>
-
+<section id="commissioni" class="projects" aria-label={t('projects.heading')}>
     <div class="projects-container">
 
-        <!-- Section label -->
-        <p class="projects-eyebrow projects-reveal" aria-hidden="true">// 03 — projects</p>
+        <h2 class="projects-heading projects-reveal">{t('projects.heading')}</h2>
 
-        <!-- Heading -->
-        <h2 class="projects-heading projects-reveal projects-reveal--delay-1">
-            <span class="heading-main">Projects</span>
-            <span class="heading-accent" aria-hidden="true">/</span>
-        </h2>
-
-        <!-- Project list -->
         <div class="projects-list">
             {sortedProjects.map((project, i) => (
-                <ProjectCard project={project} index={i} />
+                <ProjectCard project={project} index={i} lang={lang} />
             ))}
         </div>
 
@@ -32,98 +24,24 @@ const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
 </section>
 
 <style>
-    /* ─── Layout ──────────────────────────────────────────────── */
-
     .projects {
-        position: relative;
         padding-block: clamp(5rem, 12vw, 9rem);
-        overflow: hidden;
     }
 
     .projects-container {
-        position: relative;
-        z-index: 1;
         width: 100%;
         padding-inline: clamp(1.5rem, 8vw, 6rem);
         max-width: 90rem;
         margin: 0 auto;
     }
 
-    /* ─── Background Layers ───────────────────────────────────── */
-
-    .projects-bg-grid {
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(
-            circle,
-            color-mix(in srgb, #6C63FF 18%, transparent) 1px,
-            transparent 1px
-        );
-        background-size: 32px 32px;
-        mask-image: radial-gradient(ellipse 80% 60% at 50% 100%, black 20%, transparent 75%);
-        opacity: 0.2;
-        pointer-events: none;
-    }
-
-    .projects-bg-glow {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-            ellipse 60% 40% at 50% 100%,
-            color-mix(in srgb, #6C63FF 8%, transparent),
-            transparent 70%
-        );
-        pointer-events: none;
-    }
-
-    /* ─── Eyebrow ─────────────────────────────────────────────── */
-
-    .projects-eyebrow {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.2em;
-        color: var(--color-accent);
-        margin-bottom: 2.5rem;
-    }
-
-    /* ─── Heading ─────────────────────────────────────────────── */
-
     .projects-heading {
-        font-size: clamp(3rem, 8vw, 5.5rem);
-        line-height: 1;
-        letter-spacing: -0.03em;
-        font-weight: 700;
-        color: var(--color-text-primary);
-        margin: 0 0 3.5rem;
-        display: flex;
-        align-items: baseline;
-        gap: 0.2em;
+        margin: 0 0 3rem;
     }
-
-    .heading-main {
-        font-family: var(--font-sans);
-    }
-
-    .heading-accent {
-        font-family: var(--font-mono);
-        font-size: 0.65em;
-        color: var(--color-accent);
-        font-weight: 400;
-        opacity: 0.8;
-    }
-
-    /* ─── Project List ────────────────────────────────────────── */
 
     .projects-list {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-    }
-
-    @media (min-width: 768px) {
-        .projects-list {
-            gap: 2.5rem;
-        }
     }
 
     /* ─── Scroll-reveal ───────────────────────────────────────── */
@@ -141,8 +59,6 @@ const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
         transform: translateY(0);
     }
 
-    .projects-reveal--delay-1 { transition-delay: 0.1s; }
-
     /* ─── Reduced Motion ──────────────────────────────────────── */
 
     @media (prefers-reduced-motion: reduce) {
@@ -155,7 +71,7 @@ const sortedProjects = [...projects].sort((a, b) => a.order - b.order);
 </style>
 
 <script>
-    const reveals = document.querySelectorAll('.projects-reveal, .proj-reveal');
+    const reveals = document.querySelectorAll('.projects-reveal, .commission-reveal');
 
     const observer = new IntersectionObserver(
         (entries) => {
