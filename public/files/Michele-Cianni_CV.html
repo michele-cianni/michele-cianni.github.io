@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michele Cianni — CV</title>
     <meta name="description" content="Curriculum Vitae of Michele Cianni — Full-Stack Developer & AI Enthusiast">
-    <meta name="theme-color" content="#0A0A0F">
-    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#F6F1E7">
+    <meta name="color-scheme" content="light">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Newsreader:wght@400;500;600&display=swap">
 
     <style>
         /* ─── Design tokens (matching portfolio) ─────── */
         :root {
-            --bg: #0A0A0F;
-            --surface: #1A1A2E;
-            --accent: #6C63FF;
-            --text-1: #E4E4E7;
-            --text-2: #9CA3AF;
-            --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-            --font-display: 'Bebas Neue', cursive;
+            --bg: #F6F1E7;
+            --surface: #ECE4D4;
+            --accent: #B5481F;
+            --seal: #7A2E1E;
+            --text-1: #211C18;
+            --text-2: #5B524A;
+            --line: #D8CDB8;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Newsreader', Georgia, serif;
             --max-w: 56rem;
         }
 
@@ -32,40 +33,18 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { font-size: 16px; scroll-behavior: smooth; }
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text-1);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
         }
         a { color: var(--accent); text-decoration: none; transition: opacity .2s; }
         a:hover { opacity: .75; }
         ul { list-style: none; }
-
-        /* ─── Background atmosphere ──────────────────── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%),
-                radial-gradient(ellipse 40% 40% at 85% 15%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 1px, transparent 1px);
-            background-size: 32px 32px;
-            mask-image: radial-gradient(ellipse 70% 70% at 15% 85%, black 20%, transparent 70%);
-            opacity: .25;
-            pointer-events: none;
-            z-index: 0;
-        }
 
         /* ─── Page wrapper ───────────────────────────── */
         .page {
@@ -83,13 +62,14 @@
             justify-content: space-between;
             margin-bottom: 3rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+            border-bottom: 1px solid var(--line);
         }
 
         .back-link {
-            font-family: var(--font-mono);
+            font-family: var(--font-body);
+            font-weight: 500;
             font-size: .75rem;
-            letter-spacing: .1em;
+            letter-spacing: .05em;
             color: var(--accent);
             display: inline-flex;
             align-items: center;
@@ -101,13 +81,14 @@
         .back-link:hover { opacity: 1; }
 
         .print-btn {
-            font-family: var(--font-mono);
+            font-family: var(--font-body);
+            font-weight: 500;
             font-size: .65rem;
-            letter-spacing: .12em;
+            letter-spacing: .06em;
             text-transform: uppercase;
             color: var(--text-2);
             background: transparent;
-            border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+            border: 1px solid var(--line);
             padding: .4rem 1rem;
             cursor: pointer;
             transition: border-color .2s, color .2s, background .2s;
@@ -129,22 +110,30 @@
         }
 
         .cv-eyebrow {
-            font-family: var(--font-mono);
-            font-size: .7rem;
-            letter-spacing: .2em;
-            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--font-body);
+            font-size: .9375rem;
+            letter-spacing: .04em;
+            color: var(--text-2);
             margin-bottom: 1rem;
-            opacity: .7;
+        }
+
+        .cv-seal {
+            color: var(--seal);
+            font-size: 1.125rem;
         }
 
         .cv-updated {
-            font-family: var(--font-mono);
-            font-size: .62rem;
-            letter-spacing: .08em;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: .68rem;
+            letter-spacing: .06em;
             color: var(--text-2);
             margin-top: -.4rem;
             margin-bottom: 1rem;
-            opacity: .75;
+            opacity: .8;
             text-transform: uppercase;
         }
 
@@ -172,13 +161,14 @@
         }
 
         .contact-pill {
-            font-family: var(--font-mono);
-            font-size: .7rem;
-            letter-spacing: .04em;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: .75rem;
+            letter-spacing: .03em;
             color: var(--text-2);
             padding: .35rem .85rem;
-            background: color-mix(in srgb, var(--surface) 70%, transparent);
-            border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+            background: var(--surface);
+            border: 1px solid var(--line);
             display: inline-flex;
             align-items: center;
             gap: .45em;
@@ -207,30 +197,29 @@
             gap: .75rem;
             margin-bottom: 1.5rem;
             padding-bottom: .6rem;
-            border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+            border-bottom: 1px solid var(--line);
         }
 
         .section-index {
-            font-family: var(--font-mono);
-            font-size: .65rem;
-            font-weight: 500;
+            font-family: var(--font-body);
+            font-size: .7rem;
+            font-weight: 600;
             color: var(--accent);
-            opacity: .55;
-            letter-spacing: .05em;
+            letter-spacing: .04em;
         }
 
         .section-sep {
-            font-family: var(--font-mono);
+            font-family: var(--font-body);
             font-size: .7rem;
             color: var(--text-2);
-            opacity: .25;
+            opacity: .4;
         }
 
         .section-title {
-            font-family: var(--font-sans);
+            font-family: var(--font-body);
             font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: .14em;
+            font-weight: 600;
+            letter-spacing: .08em;
             text-transform: uppercase;
             color: var(--text-1);
         }
@@ -248,8 +237,8 @@
             left: 0;
             top: .35rem;
             bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 10%, transparent));
+            width: 1px;
+            background: var(--accent);
         }
 
         .entry:last-child { margin-bottom: 0; }
@@ -263,8 +252,9 @@
         }
 
         .entry-company {
+            font-family: var(--font-display);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.0625rem;
             color: var(--text-1);
         }
 
@@ -272,17 +262,17 @@
         .entry-company a:hover { color: var(--accent); opacity: 1; }
 
         .entry-role {
-            font-family: var(--font-mono);
-            font-size: .75rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: .8rem;
             color: var(--accent);
-            opacity: .8;
         }
 
         .entry-meta {
-            font-family: var(--font-mono);
-            font-size: .68rem;
+            font-family: var(--font-body);
+            font-size: .75rem;
             color: var(--text-2);
-            letter-spacing: .04em;
+            letter-spacing: .02em;
             margin-bottom: .6rem;
             display: flex;
             flex-wrap: wrap;
@@ -334,8 +324,9 @@
         }
 
         .project-name {
+            font-family: var(--font-display);
             font-weight: 700;
-            font-size: .95rem;
+            font-size: 1rem;
             color: var(--text-1);
         }
 
@@ -343,10 +334,10 @@
         .project-name a:hover { color: var(--accent); opacity: 1; }
 
         .project-year {
-            font-family: var(--font-mono);
-            font-size: .68rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: .75rem;
             color: var(--text-2);
-            opacity: .7;
         }
 
         .project-desc {
@@ -396,10 +387,10 @@
         }
 
         .course-provider {
-            font-family: var(--font-mono);
-            font-size: .68rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: .75rem;
             color: var(--accent);
-            opacity: .7;
         }
 
         /* ─── Skills grid ────────────────────────────── */
@@ -416,14 +407,13 @@
         }
 
         .skill-category {
-            font-family: var(--font-mono);
-            font-size: .7rem;
+            font-family: var(--font-body);
+            font-size: .8rem;
             font-weight: 600;
             color: var(--accent);
-            letter-spacing: .06em;
+            letter-spacing: .03em;
             min-width: 10rem;
             flex-shrink: 0;
-            opacity: .8;
         }
 
         .skill-items {
@@ -452,22 +442,27 @@
         }
 
         .lang-level {
-            font-family: var(--font-mono);
-            font-size: .7rem;
+            font-family: var(--font-body);
+            font-size: .75rem;
             color: var(--text-2);
-            opacity: .7;
         }
 
         /* ─── Footer strip ───────────────────────────── */
         .cv-footer {
             margin-top: 3.5rem;
             padding-top: .875rem;
-            border-top: 1px solid color-mix(in srgb, var(--text-2) 10%, transparent);
-            font-family: var(--font-mono);
-            font-size: .56rem;
+            border-top: 1px solid var(--line);
+            display: flex;
+            align-items: baseline;
+            gap: .35em;
+            font-family: var(--font-body);
+            font-size: .75rem;
             color: var(--text-2);
-            opacity: .2;
-            letter-spacing: .07em;
+            letter-spacing: .02em;
+        }
+
+        .footer-seal {
+            color: var(--seal);
         }
 
         /* ─── Animations ─────────────────────────────── */
@@ -501,15 +496,6 @@
 
         /* ─── Print styles ───────────────────────────── */
         @media print {
-            :root {
-                --bg: #fff;
-                --surface: #f4f4f5;
-                --accent: #4338ca;
-                --text-1: #18181b;
-                --text-2: #52525b;
-            }
-
-            body::before, body::after { display: none; }
             .top-bar { display: none; }
 
             .page { padding: 0; max-width: 100%; }
@@ -525,7 +511,6 @@
             .entry::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
             .entry-bullets li::before,
             .project-bullets li::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-            .contact-pill { border-color: #d4d4d8; }
         }
 
         /* ─── Responsive ─────────────────────────────── */
@@ -560,7 +545,7 @@
 
         <!-- Header -->
         <header class="cv-header">
-            <p class="cv-eyebrow">// curriculum vitae</p>
+            <p class="cv-eyebrow"><span class="cv-seal" aria-hidden="true">&#8857;</span> Curriculum Vitae</p>
             <p class="cv-updated">Last updated 2026</p>
             <h1 class="cv-name">Michele<br>Cianni</h1>
             <p class="cv-tagline">Full-Stack Developer &amp; AI Enthusiast</p>
@@ -831,7 +816,7 @@
 
         <!-- Footer -->
         <footer class="cv-footer">
-            process.exit(0) &nbsp;// end of cv
+            <span class="footer-seal" aria-hidden="true">&#8857;</span> &copy; 2026 Michele Cianni
         </footer>
 
     </div>
