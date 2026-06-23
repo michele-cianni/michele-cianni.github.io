@@ -15,6 +15,7 @@ Ordine di esecuzione consigliato (le dipendenze sono indicate in ogni file).
 | 08 | [Contatto (form su carta)](08-contatto-contact.md) | 01, 02 |
 | 09 | [Navbar + Footer + toggle lingua](09-navbar-footer.md) | 01, 02 |
 | 10 | [Pulizia + verifica](10-cleanup-verify.md) | tutti |
+| 11 | [Redesign CV HTML (tema carta)](11-cv-redesign.md) | 01 |
 
 ## Da fornire da Michele (non bloccante per lo scaffolding)
 
