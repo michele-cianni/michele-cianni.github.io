@@ -141,41 +141,50 @@ const t = useTranslations(lang);
     /* ─── Scroll-reveal ───────────────────────────────────────── */
 
     .about-reveal {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition:
             opacity 0.6s ease-out,
             transform 0.6s ease-out;
     }
 
-    .about-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
+    .about-reveal.is-pending {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
     .about-reveal--delay-1 { transition-delay: 0.1s; }
     .about-reveal--delay-2 { transition-delay: 0.2s; }
     .about-reveal--delay-3 { transition-delay: 0.3s; }
 
+    /* ─── Print ───────────────────────────────────────────────── */
+
+    @media print {
+        .about-reveal,
+        .about-reveal.is-pending {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+    }
+
     /* ─── Reduced Motion ──────────────────────────────────────── */
 
     @media (prefers-reduced-motion: reduce) {
-        .about-reveal {
-            opacity: 1;
-            transform: none;
-            transition: none;
-        }
+        .about-reveal { transition: none; }
+        .about-reveal.is-pending { opacity: 1; transform: none; }
     }
 </style>
 
 <script>
     const reveals = document.querySelectorAll('.about .about-reveal');
+    reveals.forEach((el) => el.classList.add('is-pending'));
 
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.remove('is-pending');
                     observer.unobserve(entry.target);
                 }
             });

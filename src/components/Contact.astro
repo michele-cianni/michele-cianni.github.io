@@ -474,16 +474,16 @@ const t = useTranslations(lang);
     /* ─── Scroll-reveal ───────────────────────────────────────── */
 
     .contact-reveal {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition:
             opacity 0.6s ease-out,
             transform 0.6s ease-out;
     }
 
-    .contact-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
+    .contact-reveal.is-pending {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
     .contact-reveal--delay-1 { transition-delay: 0.1s; }
@@ -491,14 +491,22 @@ const t = useTranslations(lang);
     .contact-reveal--delay-3 { transition-delay: 0.3s; }
     .contact-reveal--delay-4 { transition-delay: 0.42s; }
 
+    /* ─── Print ───────────────────────────────────────────────── */
+
+    @media print {
+        .contact-reveal,
+        .contact-reveal.is-pending {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+    }
+
     /* ─── Reduced Motion ──────────────────────────────────────── */
 
     @media (prefers-reduced-motion: reduce) {
-        .contact-reveal {
-            opacity: 1;
-            transform: none;
-            transition: none;
-        }
+        .contact-reveal { transition: none; }
+        .contact-reveal.is-pending { opacity: 1; transform: none; }
 
         .contact-card,
         .social-link,
@@ -512,12 +520,13 @@ const t = useTranslations(lang);
 
 <script>
     const reveals = document.querySelectorAll('.contact .contact-reveal');
+    reveals.forEach((el) => el.classList.add('is-pending'));
 
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.remove('is-pending');
                     observer.unobserve(entry.target);
                 }
             });

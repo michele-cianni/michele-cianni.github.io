@@ -114,15 +114,15 @@ const year = new Date().getFullYear();
     /* ── Reveal on scroll ──────────────────────────── */
 
     .reveal {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
                     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
+    .reveal.is-pending {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
     /* ── Footer root ───────────────────────────────── */
@@ -298,20 +298,33 @@ const year = new Date().getFullYear();
         color: var(--color-accent);
     }
 
+    /* ── Print ──────────────────────────────────────── */
+
+    @media print {
+        .reveal,
+        .reveal.is-pending {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+    }
+
     /* ── Reduced motion ────────────────────────────── */
 
     @media (prefers-reduced-motion: reduce) {
-        .reveal { transition: none; opacity: 1; transform: none; }
+        .reveal { transition: none; }
+        .reveal.is-pending { opacity: 1; transform: none; }
     }
 </style>
 
 <script>
     const footer = document.getElementById('footer');
     if (footer) {
+        footer.classList.add('is-pending');
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    footer.classList.add('is-visible');
+                    footer.classList.remove('is-pending');
                     observer.disconnect();
                 }
             },
