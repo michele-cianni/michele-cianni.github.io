@@ -217,25 +217,33 @@ const detailRows = [
     /* ─── Scroll-reveal ───────────────────────────────────────── */
 
     .commission-reveal {
-        opacity: 0;
-        transform: translateY(20px);
+        opacity: 1;
+        transform: none;
         transition:
             opacity 0.6s ease-out,
             transform 0.6s ease-out;
     }
 
-    .commission-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
+    .commission-reveal.is-pending {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* ─── Print ───────────────────────────────────────────────── */
+
+    @media print {
+        .commission-reveal,
+        .commission-reveal.is-pending {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
     }
 
     /* ─── Reduced Motion ──────────────────────────────────────── */
 
     @media (prefers-reduced-motion: reduce) {
-        .commission-reveal {
-            opacity: 1;
-            transform: none;
-            transition: none;
-        }
+        .commission-reveal { transition: none; }
+        .commission-reveal.is-pending { opacity: 1; transform: none; }
     }
 </style>
