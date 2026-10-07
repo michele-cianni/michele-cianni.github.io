@@ -1,6 +1,6 @@
 # Task — Redesign sito
 
-Task derivati da [`../redesign-bottega.md`](../redesign-bottega.md).
+Task derivati da [`../redesign.md`](../redesign.md).
 Ordine di esecuzione consigliato (le dipendenze sono indicate in ogni file).
 
 | # | Task | Dipende da |

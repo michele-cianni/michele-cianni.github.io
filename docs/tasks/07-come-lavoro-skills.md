@@ -30,3 +30,9 @@ Servizi" che aiuta il cliente a riconoscersi. Le tecnologie restano sullo sfondo
 - Sezione orientata ai servizi (o rimossa con strumenti assorbiti altrove).
 - Nessun grid/glow/badge-wall neon residuo.
 - Tradotta su `/` e `/en/`.
+
+## Esito
+
+Fatto: `Skills.astro` è già la sezione "Come lavoro / How I work" (4 servizi +
+nota strumenti, testi in `ui.ts`, tradotta su `/` e `/en/`). Scelta: tenere il
+file con il nome `Skills.astro` ed `id="skills"` per non rompere le ancore.
