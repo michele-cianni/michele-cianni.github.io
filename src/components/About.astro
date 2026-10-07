@@ -10,9 +10,16 @@ const t = useTranslations(lang);
     <div class="about-container">
         <div class="about-grid">
 
-            <!-- Portrait slot — swap for a real <img> once the photo lands -->
             <div class="about-portrait about-reveal">
-                <div class="portrait-frame" aria-hidden="true">MC</div>
+                <img
+                    class="portrait-frame"
+                    src="/michele_cianni.jpg"
+                    alt={t('about.portraitAlt')}
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
 
             <div class="about-content">
@@ -76,16 +83,13 @@ const t = useTranslations(lang);
     }
 
     .portrait-frame {
-        aspect-ratio: 4 / 5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--color-paper-deep);
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
         border: 1px solid var(--color-line);
-        font-family: var(--font-display);
-        font-size: clamp(2.25rem, 6vw, 3.5rem);
-        color: color-mix(in srgb, var(--color-ink-soft) 40%, transparent);
-        letter-spacing: 0.02em;
     }
 
     /* ─── Content ─────────────────────────────────────────────── */

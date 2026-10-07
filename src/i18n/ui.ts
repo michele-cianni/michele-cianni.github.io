@@ -18,6 +18,7 @@ export const ui = {
     'nav.menuOpen': 'Menu',
     'nav.menuClose': 'Chiudi',
     'about.heading': 'Manifesto',
+    'about.portraitAlt': 'Ritratto di Michele Cianni',
     'hero.valueProp': 'Costruisco siti che portano clienti',
     'hero.subtitle':
       'Per piccole e medie imprese che vogliono un sito capace di portare clienti veri.',
@@ -72,6 +73,7 @@ export const ui = {
     'nav.menuOpen': 'Menu',
     'nav.menuClose': 'Close',
     'about.heading': 'About',
+    'about.portraitAlt': 'Portrait of Michele Cianni',
     'hero.valueProp': 'I build websites that bring you customers',
     'hero.subtitle':
       'For small and medium businesses that want a site that brings real customers.',
